@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ClimateFight</string>
+    <string name="title_activity_mapa_info">Event info</string>
+    <string name="title_activity_main">Home</string>
+    <string name="title_tab_feed">Feed</string>
+    <string name="title_tab_map">Map</string>
+    <string name="title_tab_account">Account</string>
 </resources>

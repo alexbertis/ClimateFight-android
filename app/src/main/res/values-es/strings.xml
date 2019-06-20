@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ClimateFight</string>
+    <string name="title_activity_main">Inicio</string>
+    <string name="title_activity_mapa_info">Información</string>
+    <string name="title_tab_account">Mi cuenta</string>
+    <string name="title_tab_feed">Feed</string>
+    <string name="title_tab_map">Mapa</string>
+</resources>
