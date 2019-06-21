@@ -6,12 +6,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView mTextMessage;
+
+    final FragmentManager fm = getSupportFragmentManager();
+
+    final Fragment fragmentF = new FeedFragment();
+    /*final*/ Fragment fragmentM /*= new DashboardFragment()*/;
+    /*final*/ Fragment fragmentA /*= new NotificationsFragment()*/;
+    Fragment active = fragmentF;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -19,27 +27,31 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_tab_feed);
+                case R.id.navigation_feed:
+                    fm.beginTransaction().hide(active).show(fragmentF).commit();
+                    active = fragmentF;
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_tab_map);
+
+                case R.id.navigation_map:
+                    fm.beginTransaction().hide(active).show(fragmentM).commit();
+                    active = fragmentM;
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_tab_account);
+
+                case R.id.navigation_account:
+                    fm.beginTransaction().hide(active).show(fragmentA).commit();
+                    active = fragmentA;
                     return true;
             }
             return false;
         }
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 
 }
