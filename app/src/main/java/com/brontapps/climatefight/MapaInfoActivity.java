@@ -1,12 +1,17 @@
 package com.brontapps.climatefight;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 import androidx.fragment.app.FragmentActivity;
 
 import org.osmdroid.api.IMapController;
+import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.constants.OpenStreetMapTileProviderConstants;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapController;
 import org.osmdroid.views.MapView;
 
 
@@ -18,6 +23,9 @@ public class MapaInfoActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa_info);
+        Context ctx = getApplicationContext();
+        Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
+        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
 
         map = findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
@@ -25,7 +33,7 @@ public class MapaInfoActivity extends FragmentActivity {
         map.setMultiTouchControls(true);
 
         IMapController mapController = map.getController();
-        mapController.setZoom(9.5);
+        mapController.setZoom(12);
         GeoPoint startPoint = new GeoPoint(42.1401, -0.408897);
         mapController.setCenter(startPoint);
 

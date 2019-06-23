@@ -2,7 +2,6 @@ package com.brontapps.climatefight;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,36 +12,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FeedFragment extends Fragment implements View.OnClickListener {
+public class AccountFragment extends Fragment {
 
-    private FeedViewModel mViewModel;
+    private AccountViewModel mViewModel;
 
-    public static FeedFragment newInstance() {
-        return new FeedFragment();
+    public static AccountFragment newInstance() {
+        return new AccountFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.feed_fragment, container, false);
-        v.findViewById(R.id.button).setOnClickListener(this);
-        return v;
+        return inflater.inflate(R.layout.account_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(FeedViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(AccountViewModel.class);
         // TODO: Use the ViewModel
     }
 
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.button:
-                startActivity(new Intent(getContext(), MapaInfoActivity.class));
-                break;
-        }
-    }
 }

@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    final FragmentManager fm = getSupportFragmentManager();
 
     final Fragment fragmentF = new FeedFragment();
-    /*final*/ Fragment fragmentM /*= new DashboardFragment()*/;
-    /*final*/ Fragment fragmentA /*= new NotificationsFragment()*/;
+    final Fragment fragmentM = new MainMapFragment();
+    final Fragment fragmentA = new AccountFragment();
+    final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentF;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        fm.beginTransaction().add(R.id.main_container, fragmentA, "account").hide(fragmentA).commit();
+        fm.beginTransaction().add(R.id.main_container, fragmentM, "map").hide(fragmentM).commit();
+        fm.beginTransaction().add(R.id.main_container, fragmentF, "feed").commit();
     }
 
 }
