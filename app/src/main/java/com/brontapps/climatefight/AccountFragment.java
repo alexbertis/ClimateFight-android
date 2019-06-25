@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 public class AccountFragment extends Fragment {
 
-    private AccountViewModel mViewModel;
+    private MainSharedViewModel mViewModel;
 
     public static AccountFragment newInstance() {
         return new AccountFragment();
@@ -29,7 +29,7 @@ public class AccountFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(AccountViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(MainSharedViewModel.class);
         // TODO: Use the ViewModel
     }
 

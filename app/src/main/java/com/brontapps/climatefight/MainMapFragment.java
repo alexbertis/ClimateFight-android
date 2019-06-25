@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 public class MainMapFragment extends Fragment {
 
-    private MainMapViewModel mViewModel;
+    private MainSharedViewModel mViewModel;
 
     public static MainMapFragment newInstance() {
         return new MainMapFragment();
@@ -29,7 +29,7 @@ public class MainMapFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MainMapViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(MainSharedViewModel.class);
         // TODO: Use the ViewModel
     }
 

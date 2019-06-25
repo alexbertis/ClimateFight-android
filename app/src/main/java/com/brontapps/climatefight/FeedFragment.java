@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 public class FeedFragment extends Fragment implements View.OnClickListener {
 
-    private FeedViewModel mViewModel;
+    private MainSharedViewModel mViewModel;
 
     public static FeedFragment newInstance() {
         return new FeedFragment();
@@ -32,7 +32,7 @@ public class FeedFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(FeedViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(MainSharedViewModel.class);
         // TODO: Use the ViewModel
     }
 

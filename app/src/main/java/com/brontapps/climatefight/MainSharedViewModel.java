@@ -2,6 +2,6 @@ package com.brontapps.climatefight;
 
 import androidx.lifecycle.ViewModel;
 
-public class AccountViewModel extends ViewModel {
+public class MainSharedViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 }
