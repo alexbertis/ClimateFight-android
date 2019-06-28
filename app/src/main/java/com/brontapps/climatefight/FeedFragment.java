@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FeedFragment extends Fragment implements View.OnClickListener {
+public class FeedFragment extends Fragment {
 
     private MainSharedViewModel mViewModel;
     private RecyclerView recyclerView;
@@ -27,7 +27,6 @@ public class FeedFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.feed_fragment, container, false);
-        v.findViewById(R.id.button).setOnClickListener(this);
         recyclerView = v.findViewById(R.id.recyclerFeed);
         //MultiAdapter adapter = new MultiAdapter();
         return v;
@@ -40,5 +39,5 @@ public class FeedFragment extends Fragment implements View.OnClickListener {
         // TODO: Use the ViewModel
     }
 
-    
+
 }
