@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 
@@ -50,6 +51,7 @@ public class MainMapFragment extends Fragment {
         map.setBuiltInZoomControls(true);
         map.setMultiTouchControls(true);
 
+
         mapController = map.getController();
         mapController.setZoom(15);
         GeoPoint startPoint = new GeoPoint(42.1401, -0.408897);
@@ -65,12 +67,22 @@ public class MainMapFragment extends Fragment {
         mViewModel.itemList.observe(this, new Observer<List<ItemHome>>() {
             @Override
             public void onChanged(List<ItemHome> itemHomes) {
-                for(ItemHome itemHome : itemHomes){
-                    Marker startMarker = new Marker(map);
-                    startMarker.setPosition(new GeoPoint(itemHome.getUbicacion().getLatitude(), itemHome.getUbicacion().getLongitude()));
-                    startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                    startMarker.setTitle(itemHome.getNombre());
-                    map.getOverlays().add(startMarker);
+                for(final ItemHome itemHome : itemHomes){
+                    Marker evMarker = new Marker(map);
+                    evMarker.setPosition(new GeoPoint(itemHome.getUbicacion().getLatitude(), itemHome.getUbicacion().getLongitude()));
+                    evMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+                    evMarker.setTitle(itemHome.getNombre());
+                    evMarker.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(Marker marker, MapView mapView) {
+                            Intent eventoIntent = new Intent(mViewModel.activity, MoreInfoActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("nombre", itemHome.getNombre());
+                            eventoIntent.putExtras(bundle);
+                            return false;
+                        }
+                    });
+                    map.getOverlays().add(evMarker);
                 }
 
             }

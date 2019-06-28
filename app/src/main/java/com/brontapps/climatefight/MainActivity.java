@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
 
         final MainSharedViewModel viewModel = ViewModelProviders.of(this).get(MainSharedViewModel.class);
+        viewModel.activity = MainActivity.this;
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.collection("eventos").document("cI5TuJL5kXjikv4cfTVk").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
