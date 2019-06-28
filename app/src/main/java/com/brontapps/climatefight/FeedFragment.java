@@ -40,13 +40,5 @@ public class FeedFragment extends Fragment implements View.OnClickListener {
         // TODO: Use the ViewModel
     }
 
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.button:
-                startActivity(new Intent(getContext(), MoreInfoActivity.class));
-                break;
-        }
-    }
+    
 }
