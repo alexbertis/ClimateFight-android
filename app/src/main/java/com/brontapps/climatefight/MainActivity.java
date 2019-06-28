@@ -1,15 +1,13 @@
 package com.brontapps.climatefight;
 
 import android.content.Context;
-import android.location.Location;
 import android.os.Bundle;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
@@ -18,13 +16,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import org.osmdroid.config.Configuration;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,11 +73,17 @@ public class MainActivity extends AppCompatActivity {
         final MainSharedViewModel viewModel = ViewModelProviders.of(this).get(MainSharedViewModel.class);
         viewModel.activity = MainActivity.this;
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        firestore.collection("eventos").document("cI5TuJL5kXjikv4cfTVk").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        firestore.collection("eventos").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot ds) {
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 // TODO: código de muestra de conexión a la DB
-                viewModel.itemList.setValue(Collections.singletonList(new ItemHome(ds.getString("nombre"), ds.getString("descripcion"), ds.getLong("tipo"), ds.getGeoPoint("centro"))));
+                List<ItemHome> items = new ArrayList<>();
+                for (DocumentSnapshot ds : queryDocumentSnapshots.getDocuments()) {
+                    items.add(new ItemHome(ds.getString("nombre"), ds.getString("descripcion"),
+                            (ds.getLong("tipo")).intValue(), ds.getLong("inicio"), ds.getLong("fin"),
+                            ds.getBoolean("periodico"), ds.getGeoPoint("centro"), ds.getString("nlugar"), ds.getString("url")));
+                }
+                viewModel.itemList.setValue(items);
             }
         });
     }

@@ -1,26 +1,37 @@
 package com.brontapps.climatefight;
 
-import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.provider.CalendarContract;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 
+import org.json.JSONObject;
 import org.osmdroid.api.IMapController;
-import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
 
-public class MoreInfoActivity extends AppCompatActivity {
+import java.lang.reflect.Type;
+
+public class MoreInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private MapView map = null;
+    private ItemHome evento;
+    private boolean fav = false;
+
+    private TextView tvTitulo, tvTipo, tvUbic, tvFecha, tvDesc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +39,29 @@ public class MoreInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_more_info);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        evento = new Gson().fromJson(getIntent().getStringExtra("objeto"), ItemHome.class);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        tvTitulo = findViewById(R.id.infoev_tit);
+        tvUbic = findViewById(R.id.infoev_ubi);
+        tvFecha = findViewById(R.id.infoev_fecha);
+        tvDesc = findViewById(R.id.infoev_des);
+        // TODO: cambiar programáticamente TextView del tipo de evento
+        final FloatingActionButton fab = findViewById(R.id.fab);
+
+        tvTitulo.setText(evento.getNombre());
+        tvUbic.setText(evento.getRefUbi());
+        tvDesc.setText(evento.getDesc());
+        tvFecha.setText(new HelperTiempos().tiempoRestante(evento.getMillisStart()));
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                fav = !fav;
+                if(fav){
+                    fab.setImageDrawable(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.ic_favorite_black));
+                }else {
+                    fab.setImageDrawable(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.ic_favorite_border_black));
+                }
             }
         });
 
@@ -50,9 +77,37 @@ public class MoreInfoActivity extends AppCompatActivity {
         map.setMultiTouchControls(false);
 
         IMapController mapController = map.getController();
-        mapController.setZoom(15);
-        GeoPoint startPoint = new GeoPoint(42.1401, -0.408897);
-        mapController.setCenter(startPoint);
+        mapController.setZoom(18);
+        GeoPoint centro = new GeoPoint(evento.getUbicacion().getLatitude(), evento.getUbicacion().getLongitude());
+        mapController.setCenter(centro);
+        Marker evMarker = new Marker(map);
+        evMarker.setPosition(centro);
+        evMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
+        evMarker.setIcon(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.pin_place));
+        map.getOverlays().add(evMarker);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()){
+            case R.id.infoev_calendar:
+                intent = new Intent(Intent.ACTION_EDIT);
+                intent.setType("vnd.android.cursor.item/event");
+                intent.putExtra(CalendarContract.Events.TITLE, evento.getNombre());
+                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, evento.getMillisStart());
+                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, evento.getMillisEnd());
+                intent.putExtra(CalendarContract.Events.ALL_DAY, false);// periodicity
+                intent.putExtra(CalendarContract.Events.DESCRIPTION, evento.getDesc());
+                startActivity(intent);
+                break;
+            case R.id.infoev_link:
+                intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(evento.getUrlInfo()));
+                startActivity(intent);
+                break;
+        }
     }
 
     public void onResume(){

@@ -6,4 +6,12 @@
     <string name="title_tab_account">Mi cuenta</string>
     <string name="title_tab_feed">Feed</string>
     <string name="title_tab_map">Mapa</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="event_at_hour">a las</string>
+    <string name="event_starts_date">Empieza el</string>
+    <string name="event_starts_today">Empieza a las</string>
+    <string name="title_activity_more_info">Información evento</string>
+    <string name="event_access_page">Ir a la web del organizador</string>
+    <string name="event_cal_add">Añadir</string>
+    <string name="event_protest">Manifestación</string>
 </resources>

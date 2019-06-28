@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="drawableLeftCompat" format="reference"/>
+    <attr name="drawableRightCompat" format="reference"/>
+    <attr name="drawableTopCompat" format="reference"/>
+    <attr name="drawableBottomCompat" format="reference"/>
+    <attr name="drawableTintCompat" format="reference"/>
+    <attr name="drawablePaddingCompat" format="reference"/>
+    <declare-styleable name="TextViewCompatible">
+        <attr name="drawableLeftCompat"/>
+        <attr name="drawableRightCompat"/>
+        <attr name="drawableTopCompat"/>
+        <attr name="drawableBottomCompat"/>
+        <attr name="drawableTintCompat"/>
+        <attr name="drawablePaddingCompat"/>
+    </declare-styleable>
+    <declare-styleable name="ButtonCompatible">
+        <attr name="drawableLeftCompat"/>
+        <attr name="drawableRightCompat"/>
+        <attr name="drawableTopCompat"/>
+        <attr name="drawableBottomCompat"/>
+        <attr name="drawableTintCompat"/>
+        <attr name="drawablePaddingCompat"/>
+    </declare-styleable>
+</resources>

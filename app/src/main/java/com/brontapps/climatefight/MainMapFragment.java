@@ -17,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -76,9 +78,10 @@ public class MainMapFragment extends Fragment {
                         @Override
                         public boolean onMarkerClick(Marker marker, MapView mapView) {
                             Intent eventoIntent = new Intent(mViewModel.activity, MoreInfoActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("nombre", itemHome.getNombre());
-                            eventoIntent.putExtras(bundle);
+                            Gson gson = new Gson();
+                            String json = gson.toJson(itemHome);
+                            eventoIntent.putExtra("objeto", json);
+                            startActivity(eventoIntent);
                             return false;
                         }
                     });

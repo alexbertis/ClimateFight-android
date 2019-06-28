@@ -26,6 +26,7 @@
             <org.osmdroid.views.MapView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:layout_collapseMode="parallax"
                 android:id="@+id/map"/>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -46,6 +47,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_favorite_border_black"
+        app:tint="@color/white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
