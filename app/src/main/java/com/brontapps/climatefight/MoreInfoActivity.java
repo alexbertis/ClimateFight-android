@@ -51,7 +51,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         tvTitulo.setText(evento.getNombre());
         tvUbic.setText(evento.getRefUbi());
         tvDesc.setText(evento.getDesc());
-        tvFecha.setText(new HelperTiempos().tiempoRestante(evento.getMillisStart()));
+        tvFecha.setText(new HelperTiempos(MoreInfoActivity.this).tiempoRestante(evento.getMillisStart()));
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

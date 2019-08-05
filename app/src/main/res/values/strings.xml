@@ -64,4 +64,26 @@
     <string name="event_access_page">Go to official page</string>
     <string name="event_cal_add">Add</string>
     <string name="event_protest">Protest</string>
+    <string name="patternToday">\'Today at\' HH:mm</string>
+    <string name="patternTomorrow">\'Tomorrow at\' HH:mm</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\"</string>
+    <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\"</string>
+    <string name="prettytime_title">Relative time format</string>
 </resources>

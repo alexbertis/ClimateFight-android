@@ -28,7 +28,7 @@
                 android:text="@string/event_protest"
                 android:textColor="@color/white"
                 android:background="#C62828"/>
-            <com.brontapps.climatefight.TextViewCompatible
+            <com.brontapps.climatefight.views.TextViewCompatible
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="6dp"

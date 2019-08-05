@@ -1,4 +1,4 @@
-package com.brontapps.climatefight;
+package com.brontapps.climatefight.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.graphics.drawable.DrawableCompat;
+
+import com.brontapps.climatefight.R;
 
 /**
  * Creadito con cariño por alexb el día 04/01/2018.

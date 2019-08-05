@@ -14,4 +14,14 @@
     <string name="event_access_page">Ir a la web del organizador</string>
     <string name="event_cal_add">Añadir</string>
     <string name="event_protest">Manifestación</string>
+    <string name="title_activity_settings">Configuración</string>
+
+
+    <string name="patternToday">\'Hoy a las\' HH:mm</string>
+    <string name="patternTomorrow">\'Mañana a las\' HH:mm</string>
+
+
+    <string name="prettytime_summary_off">Fecha y hora se mostrarán tal y como son.\nEjemplo: \"Hoy a las 14:30\"</string>
+    <string name="prettytime_summary_on">Fecha y hora se mostrarán en términos relativos.\nEjemplo: \"Dentro de 3 horas\"</string>
+    <string name="prettytime_title">Formato de fecha relativo</string>
 </resources>
