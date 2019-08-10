@@ -15,4 +15,7 @@
 .idea/misc.xml
 .idea/vcs.xml
 app/google-services.json
+app/release
+app/build
 app/src/main/res/values/secrets.xml
+gradle.properties
