@@ -12,28 +12,29 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".ClimateApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.climate.fight.ui.crear.PickMapActivity"></activity>
+        <activity android:name=".ui.crear.PickMapActivity"></activity>
         <activity
-            android:name="com.climate.fight.AccountActivity"
+            android:name=".AccountActivity"
             android:label="@string/title_activity_account"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.climate.fight.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.climate.fight.MoreInfoActivity"
+            android:name=".MoreInfoActivity"
             android:label="@string/title_activity_more_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.climate.fight.ui.crear.CrearActivity"
+            android:name=".ui.crear.CrearActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.climate.fight.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

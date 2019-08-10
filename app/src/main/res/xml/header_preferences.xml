@@ -19,8 +19,13 @@
         app:summaryOn="@string/prettytime_summary_on"
         app:title="@string/prettytime_title" />
 
-    <ListPreference>
-
-    </ListPreference>
+    <ListPreference
+        app:key="darkmode"
+        app:summary="@string/darkmode_summary"
+        app:title="@string/darkmode_title"
+        app:entries="@array/dark_entries"
+        app:entryValues="@array/dark_values"
+        app:defaultValue="auto"
+        />
 
 </androidx.preference.PreferenceScreen>

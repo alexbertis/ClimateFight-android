@@ -21,26 +21,27 @@ import com.climate.fight.ui.main.MainMapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import org.osmdroid.config.Configuration;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentManager fm = getSupportFragmentManager();
+    private final FragmentManager fm = getSupportFragmentManager();
     private final Fragment fragmentF = new FeedFragment();
     private Fragment active = fragmentF;
     private final Fragment fragmentM = new MainMapFragment();
 
 
     private List<ItemHome> itemList = new ArrayList<>();
-    private MultiAdapter adapter = null;
-    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+    private final FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
                 switch (item.getItemId()) {
                     case R.id.navigation_feed:
@@ -65,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        FirebaseFirestore.getInstance().setFirestoreSettings(new FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).build());
 
         // TODO: salvar los fragmentos al rotar la pantalla
 
         fm.beginTransaction().add(R.id.main_container, fragmentM, "map").hide(fragmentM).commit();
         fm.beginTransaction().add(R.id.main_container, fragmentF, "feed").commit();
 
-        updateFirestoreMain();
-
+        updateFirestoreMain(null);
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
@@ -86,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void updateFirestoreMain(){
-        long millis = new GregorianCalendar().getTimeInMillis();
-        firestore.collection("eventos").orderBy("inicio").startAt(millis).get().addOnSuccessListener(queryDocumentSnapshots -> {
+    public void updateFirestoreMain(MultiAdapter adapter){
+        long millis = new Date().getTime();
+        firestore.collection("eventos").orderBy("fin").startAt(millis).get().addOnSuccessListener(queryDocumentSnapshots -> {
             // TODO: código de muestra de conexión a la DB
             itemList = new ArrayList<>();
             for (DocumentSnapshot ds : queryDocumentSnapshots.getDocuments()) {
@@ -99,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-                if(adapter != null)
-                    adapter.notifyDataSetChanged();
             }
+            if(adapter != null)
+                adapter.notifyDataSetChanged();
         });
     }
 
@@ -109,9 +110,6 @@ public class MainActivity extends AppCompatActivity {
         return itemList;
     }
 
-    public void setAdapter(MultiAdapter adapter){
-        this.adapter = adapter;
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

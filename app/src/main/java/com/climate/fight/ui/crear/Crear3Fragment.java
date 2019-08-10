@@ -15,6 +15,8 @@ import com.climate.fight.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.DecimalFormat;
+
 public class Crear3Fragment extends Fragment {
 
 
@@ -31,9 +33,7 @@ public class Crear3Fragment extends Fragment {
         View v = inflater.inflate(R.layout.crear3_fragment, container, false);
         b = v.findViewById(R.id.launchPickMapNewEv);
         til = v.findViewById(R.id.descNewEv);
-        b.setOnClickListener(view -> {
-            startActivityForResult(new Intent(getContext(), PickMapActivity.class), 117);
-        });
+        b.setOnClickListener(view -> startActivityForResult(new Intent(getContext(), PickMapActivity.class), 117));
         return v;
     }
 
@@ -43,8 +43,8 @@ public class Crear3Fragment extends Fragment {
         if(requestCode == 117){
             if(resultCode == Activity.RESULT_OK){
                 b.setText(R.string.change_center_map_new_event);
-                lati = data.getDoubleExtra("lat", 0.0);
-                longi = data.getDoubleExtra("lon", 0.0);
+                lati = (double) Math.round(data.getDoubleExtra("lat", 0.0)* 1000000d) / 1000000d;
+                longi = (double)Math.round(data.getDoubleExtra("lon", 0.0)* 1000000d) / 1000000d;
             }
         }
     }

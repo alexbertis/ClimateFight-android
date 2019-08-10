@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
-import com.climate.fight.R;
 import com.climate.fight.recycler.ItemHome;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -88,12 +86,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
 
         map = findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
-        map.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
+        map.setOnTouchListener((v, event) -> true);
         map.setBuiltInZoomControls(false);
         map.setMultiTouchControls(false);
 

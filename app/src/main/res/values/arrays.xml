@@ -9,4 +9,19 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <!-- Night mode Preference-->
+    <string-array name="dark_entries">
+        <item>Automatic (follow system)</item>
+        <item>Only with low battery</item>
+        <item>Light mode</item>
+        <item>Dark mode</item>
+    </string-array>
+
+    <string-array name="dark_values">
+        <item>auto</item>
+        <item>lowbat</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
 </resources>

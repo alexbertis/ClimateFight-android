@@ -18,6 +18,8 @@
     <string name="patternToday">\'Today at\' HH:mm</string>
     <string name="patternTomorrow">\'Tomorrow at\' HH:mm</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 
     <!-- Preference Titles >
     <string name="messages_header">Messages</string>
@@ -37,6 +39,9 @@
     <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\"</string>
     <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\"</string>
     <string name="prettytime_title">Relative time format</string>
+    <string name="darkmode_title">Use app Dark theme</string>
+    <string name="darkmode_summary">Enable the app\'s night mode</string>
+
     <string name="title_activity_account">Your account</string>
     <string name="prompt_type_of_event">First of all, select the most appropriate type of event:</string>
     <string name="prompt_new_event">Hey! Let\'s create a new event on ClimateFight</string>
@@ -62,8 +67,25 @@
     <string name="select_center_map_new_event">Pick a point in the map</string>
     <string name="change_center_map_new_event">Change point in the map</string>
     <string name="pick_point">Pick this point</string>
+    <string name="revise_new_event">Let\'s revise your event.\nName: %s\nDescription: %s\nType: %s\nPlace (reference): %s\nURL: %s\nStarts: %s\nEnds: %s\nCenter: (%f, %f)</string>
     <string name="upl_success">Uploaded successfully</string>
     <string name="ev_starts">"Starts: "</string>
     <string name="ev_at">"At "</string>
-    <string name="is_urgent">¿Es urgente?</string>
+    <string name="is_urgent">Is it urgent?</string>
+    <string name="event_already_started">The event has already started according to the specified date. Are you sure you want to continue?</string>
+    <string name="err_past_date">Use a future date</string>
+    <string name="err_select_center">Pick a center point</string>
+    <string name="err_min_3_chars">At least 3 characters</string>
+    <string name="err_min_30_chars">At least 30 characters</string>
+    <string name="err_m3c_name">Check the event\'s name (min 3 characters)</string>
+    <string name="err_event_choose_type">You need to choose a type</string>
+    <string name="err_m30c_desc">Check the description (min 30 characters)</string>
+    <string name="err_m3c_refloc">Check the name of the place (min 3 characters)</string>
+    <string name="err_center_long">You need to provide a location (using the button)</string>
+    <string name="err_futuredate_long">The event is already over, couldn\'t upload.</string>
+    <string name="msg_home_screen_welcome">Welcome to ClimateFight! Scroll down and act right now!</string>
+    <string name="msg_welcome">Welcome to ClimateFight!</string>
+    <string name="log_out">Log out</string>
+    <string name="err_invalid_date">Error parsing date, please follow the pattern</string>
+    <string name="upgrade_acc">Link with other accounts</string>
 </resources>

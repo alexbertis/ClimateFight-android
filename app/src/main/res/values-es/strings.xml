@@ -18,25 +18,32 @@
     <string name="event_protest">Manifestación</string>
     <string name="title_activity_settings">Configuración</string>
     <string name="title_activity_account">Tu cuenta</string>
-
+    <string name="dialog_yes">Sí</string>
+    <string name="dialog_no">No</string>
 
     <string name="patternToday">\'Hoy a las\' HH:mm</string>
     <string name="patternTomorrow">\'Mañana a las\' HH:mm</string>
 
-
     <string name="prettytime_summary_off">Fecha y hora se mostrarán tal y como son.\nEjemplo: \"Hoy a las 14:30\"</string>
     <string name="prettytime_summary_on">Fecha y hora se mostrarán en términos relativos.\nEjemplo: \"Dentro de 3 horas\"</string>
     <string name="prettytime_title">Formato de fecha relativo</string>
+    <string name="darkmode_title">Usar el tema oscuro</string>
+    <string name="darkmode_summary">Habilitar el modo noche de la app</string>
+
     <string name="prompt_type_of_event">Antes de nada, selecciona el tipo más apropiado de evento:</string>
     <string name="prompt_new_event">¡Hola! Vamos a crear tu nuevo evento de ClimateFight</string>
     <string name="cancel">Cancelar</string>
     <string name="back">Volver</string>
     <string name="next">Siguiente</string>
     <string name="upload">Finalizar y subir</string>
+
     <string name="type_protest">Manifestación</string>
     <string name="type_rubcollect">Batida</string>
     <string name="type_meeting_talk">Reunión</string>
     <string name="type_workshop">Taller</string>
+    <string name="type_volunteering">Voluntariado</string>
+
+    <string name="is_urgent">¿Es urgente?</string>
     <string name="prompt_event_name">Ahora necesitamos un nombre para el evento:</string>
     <string name="input_event_name">Nombre del evento</string>
     <string name="prompt_more_new_event">Ahora necesitamos un poco más de información acerca de él…</string>
@@ -50,9 +57,26 @@
     <string name="select_center_map_new_event">Seleccionar punto en el mapa</string>
     <string name="change_center_map_new_event">Cambiar punto en el mapa</string>
     <string name="pick_point">Escoger este punto</string>
+    <string name="revise_new_event">Vamos a revisar tu evento.\nNombre: %s\nDescripción: %s\nTipo: %s\nLugar de referencia: %s\nURL: %s\nComienza: %s\nAcaba: %s\nCentro: (%f, %f)</string>
     <string name="upl_success">Subida correctamente</string>
+
     <string name="ev_starts">"Comienza: "</string>
     <string name="ev_at">"En "</string>
-    <string name="type_volunteering">Voluntariado</string>
-    <string name="is_urgent">¿Es urgente?</string>
+
+    <string name="event_already_started">Tu evento ya ha empezado según la fecha que has puesto. ¿Seguro que quieres continuar?</string>
+    <string name="err_past_date">Usa una fecha futura</string>
+    <string name="err_select_center">Selecciona un punto</string>
+    <string name="err_min_3_chars">Mínimo 3 caracteres</string>
+    <string name="err_min_30_chars">Mínimo 30 caracteres</string>
+    <string name="err_m3c_name">Revisa el nombre del evento (mínimo 3 caracteres)</string>
+    <string name="err_event_choose_type">Necesitas seleccionar un tipo</string>
+    <string name="err_m30c_desc">Revisa la descripción (mínimo 30 caracteres)</string>
+    <string name="err_m3c_refloc">Revisa el lugar de referencia (mínimo 3 caracteres)</string>
+    <string name="err_center_long">Necesitas poner una ubicación para el evento (usando el botón)</string>
+    <string name="err_futuredate_long">El evento ya ha acabado, no podemos subirlo.</string>
+    <string name="msg_welcome">Te damos la bienvenida a ClimateFight</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="msg_home_screen_welcome">¡Bienvenido a ClimateFight!\nBaja por aquí ¡y actúa ya!</string>
+    <string name="err_invalid_date">Error obteniendo la fecha, por favor utiliza el patrón</string>
+    <string name="upgrade_acc">Enlazar con otras cuentas</string>
 </resources>

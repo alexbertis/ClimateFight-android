@@ -25,6 +25,7 @@ public class FeedFragment extends Fragment {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout refreshLayout;
     private List<ItemHome> itemList = new ArrayList<>();
+    private MultiAdapter adapter;
 
     public static FeedFragment newInstance() {
         return new FeedFragment();
@@ -41,8 +42,7 @@ public class FeedFragment extends Fragment {
             while (((MainActivity)getActivity()).getItemsHome() == null || ((MainActivity)getActivity()).getItemsHome().size() == 0){ }
             itemList = ((MainActivity)getActivity()).getItemsHome();
             getActivity().runOnUiThread(() -> {
-                MultiAdapter adapter = new MultiAdapter(itemList, getContext());
-                ((MainActivity)getActivity()).setAdapter(adapter);
+                adapter = new MultiAdapter(itemList, getContext());
                 LinearLayoutManager ll = new LinearLayoutManager(getContext());
                 recyclerView.setLayoutManager(ll);
                 recyclerView.setAdapter(adapter);
@@ -56,7 +56,7 @@ public class FeedFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // TODO: Use the ViewModel
         refreshLayout.setOnRefreshListener(() -> {
-            ((MainActivity)getActivity()).updateFirestoreMain();
+            ((MainActivity)getActivity()).updateFirestoreMain(adapter);
             refreshLayout.setRefreshing(false);
         });
     }

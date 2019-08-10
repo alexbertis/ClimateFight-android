@@ -21,7 +21,7 @@ import org.osmdroid.views.overlay.Marker;
 public class PickMapActivity extends AppCompatActivity {
 
     private double lat = 0.0, longi = 0.0;
-    Marker prmk;
+    private Marker prmk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

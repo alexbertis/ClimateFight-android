@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +19,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import static com.climate.fight.recycler.ItemHome.*;
+import static com.climate.fight.recycler.ItemHome.TIPO_BATIDA;
+import static com.climate.fight.recycler.ItemHome.TIPO_MANIF;
+import static com.climate.fight.recycler.ItemHome.TIPO_REUNION;
+import static com.climate.fight.recycler.ItemHome.TIPO_TALLER;
+import static com.climate.fight.recycler.ItemHome.TIPO_VOLUNTARIADO;
 
 /**
  * Creadito con cariño por alexb el día 23/06/2019.
@@ -29,8 +32,8 @@ import static com.climate.fight.recycler.ItemHome.*;
 public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<ItemHome> items;
-    private Context context;
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM HH:mm");
+    private final Context context;
+    private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM HH:mm");
 
     public MultiAdapter(List<ItemHome> items, Context context) {
         this.items = items;

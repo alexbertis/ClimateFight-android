@@ -6,17 +6,15 @@ import android.text.format.DateUtils;
 
 import androidx.preference.PreferenceManager;
 
-import com.climate.fight.R;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class HelperTiempos {
 
-    private Context context;
+    private final Context context;
     private SimpleDateFormat sdfToday;
     private SimpleDateFormat sdfTomorrow;
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
 
     public HelperTiempos(Context context){
         this.context = context;

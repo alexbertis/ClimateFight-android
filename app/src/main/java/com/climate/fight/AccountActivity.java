@@ -3,16 +3,17 @@ package com.climate.fight;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.climate.fight.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -24,7 +25,7 @@ public class AccountActivity extends AppCompatActivity {
     private FirebaseUser user;
     // Choose authentication providers
     private final int RC_SIGN_IN = 420;
-    private List<AuthUI.IdpConfig> providers = Arrays.asList(
+    private final List<AuthUI.IdpConfig> providers = Arrays.asList(
             new AuthUI.IdpConfig.EmailBuilder().build(),
             new AuthUI.IdpConfig.PhoneBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build(),
@@ -33,7 +34,8 @@ public class AccountActivity extends AppCompatActivity {
             new AuthUI.IdpConfig.TwitterBuilder().build()
     );
 
-    private FloatingActionButton fab;
+    private ImageView profilePic;
+    private TextView accountData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,25 +51,28 @@ public class AccountActivity extends AppCompatActivity {
                             .setAvailableProviders(providers)
                             .enableAnonymousUsersAutoUpgrade()
                             .setIsSmartLockEnabled(true)
-                            .build(),
-                    RC_SIGN_IN);
-
-        }
-
-        MaterialButton button = findViewById(R.id.btn_acc_logout);
-        button.setOnClickListener(view -> {
-            AuthUI.getInstance()
-                    .signOut(this)
-                    .addOnCompleteListener(task -> recreate());
-        });
-        fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                            .build(), RC_SIGN_IN);
+        } else {
+            MaterialButton button = findViewById(R.id.btn_acc_logout),
+                    upgrade = findViewById(R.id.upgrade_acc);
+            if(user.isAnonymous()) {
+                upgrade.setVisibility(View.VISIBLE);
+                upgrade.setOnClickListener(view -> startActivityForResult(AuthUI.getInstance()
+                                .createSignInIntentBuilder().setAvailableProviders(providers)
+                                .enableAnonymousUsersAutoUpgrade().setIsSmartLockEnabled(true)
+                                .build(), RC_SIGN_IN));
             }
-        });
+            accountData = findViewById(R.id.account_data);
+            String displayName = user.getDisplayName() != null ? user.getDisplayName() : "",
+            email = user.getEmail() != null ? user.getEmail() : "",
+            phone = user.getPhoneNumber() != null ? user.getPhoneNumber() : "";
+            accountData.setText(displayName + "\n" + email + "\n" + phone);
+            button.setOnClickListener(view -> AuthUI.getInstance()
+                    .signOut(this)
+                    .addOnCompleteListener(task -> recreate()));
+            profilePic = findViewById(R.id.imgUserProfile);
+            Glide.with(this).load(user.getPhotoUrl()).diskCacheStrategy(DiskCacheStrategy.ALL).fitCenter().into(profilePic);
+        }
     }
 
 
@@ -80,7 +85,7 @@ public class AccountActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
-                user = FirebaseAuth.getInstance().getCurrentUser();
+                recreate();
             } else {
                 finish();
             }
