@@ -19,4 +19,8 @@
         app:summaryOn="@string/prettytime_summary_on"
         app:title="@string/prettytime_title" />
 
+    <ListPreference>
+
+    </ListPreference>
+
 </androidx.preference.PreferenceScreen>
