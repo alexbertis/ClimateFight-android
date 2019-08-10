@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.climate.fight.PickMapActivity"></activity>
+        <activity android:name="com.climate.fight.ui.crear.PickMapActivity"></activity>
         <activity
             android:name="com.climate.fight.AccountActivity"
             android:label="@string/title_activity_account"

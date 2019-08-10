@@ -7,12 +7,13 @@ public class ItemHome {
     public static final int TIPO_BATIDA = 0;
     public static final int TIPO_MANIF = 1;
     public static final int TIPO_REUNION = 2;
-    public static final int TIPO_TALLER = 2;
+    public static final int TIPO_TALLER = 3;
+    public static final int TIPO_VOLUNTARIADO = 4;
 
     private String nombre, desc;
     private int tipo;
     private long millisStart, millisEnd;
-    private boolean periodic;
+    private boolean periodic, urgent;
     private GeoPoint ubicacion;
     private int radio;
     private String refUbi;
@@ -21,13 +22,14 @@ public class ItemHome {
     //TODO: parte social del evento
 
 
-    public ItemHome(String nombre, String desc, int tipo, long millisStart, long millisEnd, boolean periodic, GeoPoint ubicacion, int radio, String refUbi, String urlInfo){
+    public ItemHome(String nombre, String desc, int tipo, long millisStart, long millisEnd, boolean periodic, boolean urgent, GeoPoint ubicacion, int radio, String refUbi, String urlInfo){
         this.nombre = nombre;
         this.desc = desc;
         this.tipo = tipo;
         this.millisStart = millisStart;
         this.millisEnd = millisEnd;
         this.periodic = periodic;
+        this.urgent = urgent;
         this.ubicacion = ubicacion;
         this.radio = radio;
         this.refUbi = refUbi;
@@ -72,5 +74,9 @@ public class ItemHome {
 
     public int getRadio() {
         return radio;
+    }
+
+    public boolean isUrgent() {
+        return urgent;
     }
 }

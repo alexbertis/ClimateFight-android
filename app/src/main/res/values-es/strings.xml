@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">ClimateFight</string>
     <string name="title_activity_main">Inicio</string>
-    <string name="title_activity_mapa_info">Información</string>
+    <string name="event_info">Información</string>
     <string name="title_tab_account">Mi cuenta</string>
     <string name="title_tab_feed">Feed</string>
     <string name="title_tab_map">Mapa</string>
@@ -51,4 +51,8 @@
     <string name="change_center_map_new_event">Cambiar punto en el mapa</string>
     <string name="pick_point">Escoger este punto</string>
     <string name="upl_success">Subida correctamente</string>
+    <string name="ev_starts">"Comienza: "</string>
+    <string name="ev_at">"En "</string>
+    <string name="type_volunteering">Voluntariado</string>
+    <string name="is_urgent">¿Es urgente?</string>
 </resources>

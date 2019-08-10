@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -23,6 +24,12 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 
+import static com.climate.fight.recycler.ItemHome.TIPO_BATIDA;
+import static com.climate.fight.recycler.ItemHome.TIPO_MANIF;
+import static com.climate.fight.recycler.ItemHome.TIPO_REUNION;
+import static com.climate.fight.recycler.ItemHome.TIPO_TALLER;
+import static com.climate.fight.recycler.ItemHome.TIPO_VOLUNTARIADO;
+
 public class MoreInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private MapView map = null;
@@ -37,8 +44,9 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_more_info);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        evento = new Gson().fromJson(getIntent().getStringExtra("objeto"), ItemHome.class);
+        evento = new Gson().fromJson(getIntent().getStringExtra("object"), ItemHome.class);
 
+        tvTipo = findViewById(R.id.infoev_type);
         tvTitulo = findViewById(R.id.infoev_tit);
         tvUbic = findViewById(R.id.infoev_ubi);
         tvFecha = findViewById(R.id.infoev_fecha);
@@ -46,6 +54,24 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         // TODO: cambiar programáticamente TextView del tipo de evento
         final FloatingActionButton fab = findViewById(R.id.fab);
 
+        @StringRes int type = R.string.event_info;
+        switch (evento.getTipo()) {
+            case TIPO_BATIDA:
+                type = R.string.type_rubcollect;
+                break;
+            case TIPO_MANIF:
+                type = R.string.type_protest;
+                break;
+            case TIPO_REUNION:
+                type = R.string.type_meeting_talk;
+                break;
+            case TIPO_TALLER:
+                type = R.string.type_workshop;
+                break;
+            case TIPO_VOLUNTARIADO:
+                type = R.string.type_volunteering;
+        }
+        tvTipo.setText(type);
         tvTitulo.setText(evento.getNombre());
         tvUbic.setText(evento.getRefUbi());
         tvDesc.setText(evento.getDesc());

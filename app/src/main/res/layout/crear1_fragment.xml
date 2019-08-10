@@ -55,8 +55,24 @@
             android:textColor="@color/white"
             app:buttonTint="@color/white"
             android:text="@string/type_workshop" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeVoluntNewEv"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"
+            android:text="@string/type_volunteering" />
     </RadioGroup>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkUrgentNewEv"
+        app:buttonTint="@color/white"
+        android:visibility="gone"
+        android:checked="false"
+        android:textColor="@color/white"
+        android:text="@string/is_urgent"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

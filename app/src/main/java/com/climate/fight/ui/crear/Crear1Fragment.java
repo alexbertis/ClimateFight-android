@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ public class Crear1Fragment extends Fragment {
     }
 
     public RadioGroup rg;
+    public CheckBox urg;
     public TextInputLayout name;
 
     @Nullable
@@ -29,6 +31,15 @@ public class Crear1Fragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.crear1_fragment, container, false);
         rg = v.findViewById(R.id.typeGroupNewEv);
+        urg = v.findViewById(R.id.checkUrgentNewEv);
+        rg.setOnCheckedChangeListener((radioGroup, i) -> {
+            if(i == R.id.typeVoluntNewEv){
+                urg.setVisibility(View.VISIBLE);
+            }else{
+                urg.setChecked(false);
+                urg.setVisibility(View.GONE);
+            }
+        });
         name = v.findViewById(R.id.nameNewEv);
         return v;
     }

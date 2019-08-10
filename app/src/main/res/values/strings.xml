@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ClimateFight</string>
-    <string name="title_activity_mapa_info">Event info</string>
+    <string name="event_info">Event info</string>
     <string name="title_activity_main">Home</string>
     <string name="title_tab_feed">Feed</string>
     <string name="title_tab_map">Map</string>
@@ -48,6 +48,7 @@
     <string name="type_rubcollect">Rubbish collecting</string>
     <string name="type_meeting_talk">Talk/Meeting</string>
     <string name="type_workshop">Workshop</string>
+    <string name="type_volunteering">Volunteering</string>
     <string name="prompt_event_name">Now, we need a name for the event:</string>
     <string name="input_event_name">Event name</string>
     <string name="prompt_more_new_event">Now we need some more info about it…</string>
@@ -62,4 +63,7 @@
     <string name="change_center_map_new_event">Change point in the map</string>
     <string name="pick_point">Pick this point</string>
     <string name="upl_success">Uploaded successfully</string>
+    <string name="ev_starts">"Starts: "</string>
+    <string name="ev_at">"At "</string>
+    <string name="is_urgent">¿Es urgente?</string>
 </resources>

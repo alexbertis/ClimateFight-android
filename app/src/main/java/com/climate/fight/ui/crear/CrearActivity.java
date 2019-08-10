@@ -29,7 +29,9 @@ public class CrearActivity extends AppCompatActivity {
     String name, desc, place, url;
     GeoPoint center;
     long start, end;
-    int type, range;
+    public int type;
+    int range;
+    boolean urgent;
     ButtonCompatible btnNext, btnReturn;
 
     @Override
@@ -45,16 +47,7 @@ public class CrearActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btn_new_ev_next);
 
         btnReturn.setOnClickListener(view -> {
-            if(active == f3){
-                fm.beginTransaction().hide(active).show(f2).commit();
-                btnNext.setText(R.string.next);
-                active = f2;
-            }else if(active == f2){
-                fm.beginTransaction().hide(active).show(f1).commit();
-                active = f1;
-            }else if(active == f1){
-                finish();
-            }
+            back(fm);
         });
         btnNext.setOnClickListener(view -> {
             if(active == f1){
@@ -75,7 +68,7 @@ public class CrearActivity extends AppCompatActivity {
                         tipo = ItemHome.TIPO_TALLER;
                         break;
                 }
-                setD1(c1f.name.getEditText().getText().toString(), tipo);
+                setD1(c1f.name.getEditText().getText().toString(), tipo, c1f.urg.isChecked());
                 active = f2;
             }else if(active == f2){
                 fm.beginTransaction().hide(active).show(f3).commit();
@@ -100,6 +93,7 @@ public class CrearActivity extends AppCompatActivity {
                     map.put("url", url);
                     map.put("inicio", start);
                     map.put("fin", end);
+                    map.put("urgent", urgent);
                     map.put("periodico", false);
                     map.put("centro", center);
                     map.put("radio", 50);
@@ -117,9 +111,28 @@ public class CrearActivity extends AppCompatActivity {
 
     }
 
-    public void setD1(String name, int type){
+    private void back(FragmentManager fm){
+        if(active == f3){
+            fm.beginTransaction().hide(active).show(f2).commit();
+            btnNext.setText(R.string.next);
+            active = f2;
+        }else if(active == f2){
+            fm.beginTransaction().hide(active).show(f1).commit();
+            active = f1;
+        }else if(active == f1){
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        back(getSupportFragmentManager());
+    }
+
+    public void setD1(String name, int type, boolean urgent){
         this.name = name;
         this.type = type;
+        this.urgent = urgent;
     }
     public void setD2(String place, String url, long start, long end){
         this.place = place;

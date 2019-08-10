@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.climate.fight.R;
 import com.climate.fight.recycler.ItemHome;
 import com.climate.fight.recycler.MultiAdapter;
 import com.climate.fight.ui.crear.CrearActivity;
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     itemList.add(new ItemHome(ds.getString("nombre"), ds.getString("descripcion"),
                             (ds.getLong("tipo")).intValue(), ds.getLong("inicio"), ds.getLong("fin"),
-                            ds.getBoolean("periodico"), ds.getGeoPoint("centro"), ds.getLong("radio").intValue(), ds.getString("nlugar"), ds.getString("url")));
+                            ds.getBoolean("periodico"), ds.getBoolean("urgent"), ds.getGeoPoint("centro"), ds.getLong("radio").intValue(), ds.getString("nlugar"), ds.getString("url")));
                 }catch (Exception e){
                     e.printStackTrace();
                 }

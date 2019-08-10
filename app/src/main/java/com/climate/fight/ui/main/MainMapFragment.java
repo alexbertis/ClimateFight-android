@@ -70,7 +70,7 @@ public class MainMapFragment extends Fragment {
                         Intent eventoIntent = new Intent(getContext(), MoreInfoActivity.class);
                         Gson gson = new Gson();
                         String json = gson.toJson(itemHome);
-                        eventoIntent.putExtra("objeto", json);
+                        eventoIntent.putExtra("object", json);
                         startActivity(eventoIntent);
                         return false;
                     });
