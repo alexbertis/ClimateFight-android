@@ -51,15 +51,12 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         tvDesc.setText(evento.getDesc());
         tvFecha.setText(new HelperTiempos(MoreInfoActivity.this).tiempoRestante(evento.getMillisStart()));
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fav = !fav;
-                if(fav){
-                    fab.setImageDrawable(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.ic_favorite_black));
-                }else {
-                    fab.setImageDrawable(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.ic_favorite_border_black));
-                }
+        fab.setOnClickListener(view -> {
+            fav = !fav;
+            if(fav){
+                fab.setImageDrawable(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.ic_favorite_black));
+            }else {
+                fab.setImageDrawable(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.ic_favorite_border_black));
             }
         });
 

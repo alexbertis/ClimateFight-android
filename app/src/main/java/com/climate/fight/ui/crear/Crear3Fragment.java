@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.climate.fight.R;
 import com.climate.fight.PickMapActivity;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class Crear3Fragment extends Fragment {
 
@@ -23,12 +24,14 @@ public class Crear3Fragment extends Fragment {
     }
 
     MaterialButton b;
+    TextInputLayout til;
     public double lati, longi;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.crear3_fragment, container, false);
         b = v.findViewById(R.id.launchPickMapNewEv);
+        til = v.findViewById(R.id.descNewEv);
         b.setOnClickListener(view -> {
             startActivityForResult(new Intent(getContext(), PickMapActivity.class), 117);
         });

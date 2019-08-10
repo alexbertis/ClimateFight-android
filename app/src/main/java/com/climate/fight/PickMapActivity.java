@@ -3,6 +3,7 @@ package com.climate.fight;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -27,7 +28,8 @@ public class PickMapActivity extends AppCompatActivity {
         MapView map = findViewById(R.id.map_pick);
         findViewById(R.id.map_pick_ok).setOnClickListener(view -> {
             Intent i = new Intent().putExtra("lat", lat).putExtra("lon", longi);
-            setResult(117, i);
+            setResult(Activity.RESULT_OK, i);
+            finish();
         });
         final MapEventsReceiver mReceive = new MapEventsReceiver(){
             @Override

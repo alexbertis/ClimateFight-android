@@ -1,6 +1,7 @@
 package com.climate.fight.ui.crear;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -9,10 +10,14 @@ import androidx.fragment.app.FragmentManager;
 import com.climate.fight.R;
 import com.climate.fight.recycler.ItemHome;
 import com.climate.fight.views.ButtonCompatible;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 
 public class CrearActivity extends AppCompatActivity {
 
@@ -42,6 +47,7 @@ public class CrearActivity extends AppCompatActivity {
         btnReturn.setOnClickListener(view -> {
             if(active == f3){
                 fm.beginTransaction().hide(active).show(f2).commit();
+                btnNext.setText(R.string.next);
                 active = f2;
             }else if(active == f2){
                 fm.beginTransaction().hide(active).show(f1).commit();
@@ -83,8 +89,29 @@ public class CrearActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 active = f3;
-            }else if(active == f3){
+                btnNext.setText(R.string.upload);
+                btnNext.setOnClickListener(view1 -> {
+                    // TODO: filter with minimum and maximum characters
+                    HashMap<String, Object> map = new HashMap<>();
+                    map.put("nombre", name);
+                    map.put("descripcion", desc);
+                    map.put("tipo", type);
+                    map.put("nlugar", place);
+                    map.put("url", url);
+                    map.put("inicio", start);
+                    map.put("fin", end);
+                    map.put("periodico", false);
+                    map.put("centro", center);
+                    map.put("radio", 50);
 
+                    FirebaseFirestore.getInstance().collection("eventos").add(map).addOnSuccessListener(documentReference -> {
+                        Toast.makeText(this, R.string.upl_success, Toast.LENGTH_SHORT).show();
+                    });
+                });
+            }else if(active == f3){
+                Crear3Fragment c3f = (Crear3Fragment)f3;
+                desc = c3f.til.getEditText().getText().toString();
+                center = new GeoPoint(c3f.lati, c3f.longi);
             }
         });
 

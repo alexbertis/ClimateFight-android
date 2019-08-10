@@ -18,22 +18,22 @@
         android:usesCleartextTraffic="true">
         <activity android:name="com.climate.fight.PickMapActivity"></activity>
         <activity
-            android:name="com.climate.fight.com.climate.fight.AccountActivity"
+            android:name="com.climate.fight.AccountActivity"
             android:label="@string/title_activity_account"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.climate.fight.com.climate.fight.SettingsActivity"
+            android:name="com.climate.fight.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name="com.climate.fight.com.climate.fight.MoreInfoActivity"
+            android:name="com.climate.fight.MoreInfoActivity"
             android:label="@string/title_activity_more_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.climate.fight.com.climate.fight.ui.crear.CrearActivity"
+            android:name="com.climate.fight.ui.crear.CrearActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.climate.fight.com.climate.fight.MainActivity"
+            android:name="com.climate.fight.MainActivity"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

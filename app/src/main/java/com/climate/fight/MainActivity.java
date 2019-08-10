@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     itemList.add(new ItemHome(ds.getString("nombre"), ds.getString("descripcion"),
                             (ds.getLong("tipo")).intValue(), ds.getLong("inicio"), ds.getLong("fin"),
                             ds.getBoolean("periodico"), ds.getGeoPoint("centro"), ds.getLong("radio").intValue(), ds.getString("nlugar"), ds.getString("url")));
-                }catch (NullPointerException e){
+                }catch (Exception e){
                     e.printStackTrace();
                 }
                 if(adapter != null)
