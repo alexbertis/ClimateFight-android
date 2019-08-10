@@ -11,9 +11,4 @@
         android:icon="@drawable/ic_map_black"
         android:title="@string/title_tab_map" />
 
-    <item
-        android:id="@+id/navigation_account"
-        android:icon="@drawable/ic_account_circle_black"
-        android:title="@string/title_tab_account" />
-
 </menu>

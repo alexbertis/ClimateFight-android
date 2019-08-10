@@ -57,6 +57,8 @@
         "y-axis only. The following example shows the card with a height of 6dp.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="action_add">Create event</string>
+    <string name="action_account">My Account</string>
     <string name="event_starts_date">Starts</string>
     <string name="event_starts_today">Starts at</string>
     <string name="event_at_hour">at</string>
@@ -68,22 +70,45 @@
     <string name="patternTomorrow">\'Tomorrow at\' HH:mm</string>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Preference Titles -->
+    <!-- Preference Titles >
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
+    <!- Messages Preferences >
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
 
-    <!-- Sync Preferences -->
+    <!- Sync Preferences >
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string-->
 
     <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\"</string>
     <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\"</string>
     <string name="prettytime_title">Relative time format</string>
+    <string name="title_activity_account">Your account</string>
+    <string name="prompt_type_of_event">First of all, select the most appropriate type of event:</string>
+    <string name="prompt_new_event">Hey! Let\'s create a new event on ClimateFight</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Go back</string>
+    <string name="next">Next</string>
+    <string name="type_protest">Protest</string>
+    <string name="type_rubcollect">Rubbish collecting</string>
+    <string name="type_meeting_talk">Talk/Meeting</string>
+    <string name="type_workshop">Workshop</string>
+    <string name="prompt_event_name">Now, we need a name for the event:</string>
+    <string name="input_event_name">Event name</string>
+    <string name="prompt_more_new_event">Now we need some more info about it…</string>
+    <string name="from_date_new_event">From: DD/MM/YYYY HH:mm</string>
+    <string name="to_date_new_event">To: DD/MM/YYYY HH:mm</string>
+    <string name="input_event_place">Event location (name or reference)</string>
+    <string name="input_event_web_contact">Contact website (in order to use email, type in mailto:address@email.com)</string>
+    <string name="input_event_web_addr">Web address</string>
+    <string name="last_thing_new_event">Last thing, we promise</string>
+    <string name="input_event_desc">Description</string>
+    <string name="select_center_map_new_event">Pick a point in the map</string>
+    <string name="change_center_map_new_event">Change point in the map</string>
+    <string name="pick_point">Pick this point</string>
 </resources>

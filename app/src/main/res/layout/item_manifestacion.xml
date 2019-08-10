@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="?selectableItemBackground"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/manitit"
+        style="@style/TextAppearance.AppCompat.Title"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/manitime"
+            style="@style/TextAppearance.AppCompat.Body1"/>
+        <com.climate.fight.views.TextViewCompatible
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/maniplace"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="10dp"
+            app:drawableLeftCompat="@drawable/pin_place"/>
+    </LinearLayout>
 </LinearLayout>

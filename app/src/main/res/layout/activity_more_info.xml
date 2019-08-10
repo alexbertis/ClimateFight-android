@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.brontapps.climatefight.MoreInfoActivity">
+    tools:context="com.climate.fight.com.climate.fight.MoreInfoActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -47,6 +47,8 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
+        app:rippleColor="@color/colorPrimary"
+        android:backgroundTint="@color/colorAccent"
         app:srcCompat="@drawable/ic_favorite_border_black"
         app:tint="@color/white"/>
 

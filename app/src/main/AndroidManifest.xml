@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.brontapps.climatefight">
+    package="com.climate.fight">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -16,16 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name="com.climate.fight.PickMapActivity"></activity>
         <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
+            android:name="com.climate.fight.com.climate.fight.AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MoreInfoActivity"
+            android:name="com.climate.fight.com.climate.fight.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name="com.climate.fight.com.climate.fight.MoreInfoActivity"
             android:label="@string/title_activity_more_info"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CrearActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.climate.fight.com.climate.fight.ui.crear.CrearActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.climate.fight.com.climate.fight.MainActivity"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

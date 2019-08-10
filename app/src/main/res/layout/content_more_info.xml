@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.brontapps.climatefight.MoreInfoActivity"
+    tools:context="com.climate.fight.com.climate.fight.MoreInfoActivity"
     tools:showIn="@layout/activity_more_info">
 
     <LinearLayout
@@ -28,7 +28,7 @@
                 android:text="@string/event_protest"
                 android:textColor="@color/white"
                 android:background="#C62828"/>
-            <com.brontapps.climatefight.views.TextViewCompatible
+            <com.climate.fight.views.TextViewCompatible
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="6dp"

@@ -1,7 +1,7 @@
 
 <androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Preference
+    <!--Preference
         app:fragment="com.brontapps.climatefight.SettingsActivity$MessagesFragment"
         app:icon="@drawable/messages"
         app:key="messages_header"
@@ -11,7 +11,7 @@
         app:fragment="com.brontapps.climatefight.SettingsActivity$SyncFragment"
         app:icon="@drawable/sync"
         app:key="sync_header"
-        app:title="@string/sync_header" />
+        app:title="@string/sync_header" /-->
 
     <SwitchPreferenceCompat
         app:key="prettytime"

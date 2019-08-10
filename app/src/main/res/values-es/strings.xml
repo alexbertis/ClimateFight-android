@@ -6,6 +6,8 @@
     <string name="title_tab_account">Mi cuenta</string>
     <string name="title_tab_feed">Feed</string>
     <string name="title_tab_map">Mapa</string>
+    <string name="action_add">Crear evento</string>
+    <string name="action_account">Mi Cuenta</string>
     <string name="action_settings">Ajustes</string>
     <string name="event_at_hour">a las</string>
     <string name="event_starts_date">Empieza el</string>
@@ -15,6 +17,7 @@
     <string name="event_cal_add">Añadir</string>
     <string name="event_protest">Manifestación</string>
     <string name="title_activity_settings">Configuración</string>
+    <string name="title_activity_account">Tu cuenta</string>
 
 
     <string name="patternToday">\'Hoy a las\' HH:mm</string>
@@ -24,4 +27,26 @@
     <string name="prettytime_summary_off">Fecha y hora se mostrarán tal y como son.\nEjemplo: \"Hoy a las 14:30\"</string>
     <string name="prettytime_summary_on">Fecha y hora se mostrarán en términos relativos.\nEjemplo: \"Dentro de 3 horas\"</string>
     <string name="prettytime_title">Formato de fecha relativo</string>
+    <string name="prompt_type_of_event">Antes de nada, selecciona el tipo más apropiado de evento:</string>
+    <string name="prompt_new_event">¡Hola! Vamos a crear tu nuevo evento de ClimateFight</string>
+    <string name="cancel">Cancelar</string>
+    <string name="back">Volver</string>
+    <string name="next">Siguiente</string>
+    <string name="type_protest">Manifestación</string>
+    <string name="type_rubcollect">Batida</string>
+    <string name="type_meeting_talk">Reunión</string>
+    <string name="type_workshop">Taller</string>
+    <string name="prompt_event_name">Ahora necesitamos un nombre para el evento:</string>
+    <string name="input_event_name">Nombre del evento</string>
+    <string name="prompt_more_new_event">Ahora necesitamos un poco más de información acerca de él…</string>
+    <string name="from_date_new_event">Desde: DD/MM/YYYY HH:mm</string>
+    <string name="to_date_new_event">Hasta: DD/MM/YYYY HH:mm</string>
+    <string name="input_event_place">Lugar del evento (referencia)</string>
+    <string name="input_event_web_contact">Web de contacto (para usar email, escribir mailto:direccion@email.com)</string>
+    <string name="input_event_web_addr">Dirección web</string>
+    <string name="last_thing_new_event">Esto es lo último, de verdad…</string>
+    <string name="input_event_desc">Descripción</string>
+    <string name="select_center_map_new_event">Seleccionar punto en el mapa</string>
+    <string name="change_center_map_new_event">Cambiar punto en el mapa</string>
+    <string name="pick_point">Escoger este punto</string>
 </resources>

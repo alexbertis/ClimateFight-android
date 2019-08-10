@@ -1,16 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/crear1"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.crear.Crear1Fragment">
+    android:layout_height="wrap_content"
+    tools:context="com.climate.fight.ui.crear.Crear1Fragment">
 
     <TextView
-        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear1Fragment" />
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:text="@string/prompt_new_event" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:text="@string/prompt_type_of_event" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeGroupNewEv">
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeProtNewEv"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"
+            android:text="@string/type_protest"/>
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeRubbNewEv"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"
+            android:text="@string/type_rubcollect" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeTalkNewEv"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"
+            android:text="@string/type_meeting_talk" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/typeWorksNewEv"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"
+            android:text="@string/type_workshop" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:text="@string/prompt_event_name"
+        android:layout_marginBottom="14dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameNewEv"
+        android:hint="@string/input_event_name">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

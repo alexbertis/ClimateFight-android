@@ -5,26 +5,22 @@
     android:layout_height="match_parent"
     android:id="@+id/swipeRefresh"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.main.FeedFragment">
+    tools:context="com.climate.fight.ui.main.FeedFragment">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
-            android:text="Feed fragment" />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/OutlinedButtonApp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:icon="@drawable/ic_filter_list"
-            android:text="Filtrar"/>
+            android:text="¡Bienvenido a ClimateFight!\nBaja por aquí ¡y actúa ya!" />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/recyclerFeed"/>
     </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

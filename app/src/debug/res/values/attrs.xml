@@ -4,8 +4,8 @@
     <attr name="drawableRightCompat" format="reference"/>
     <attr name="drawableTopCompat" format="reference"/>
     <attr name="drawableBottomCompat" format="reference"/>
-    <attr name="drawableTintCompat" format="reference"/>
-    <attr name="drawablePaddingCompat" format="reference"/>
+    <attr name="drawableTintCompat" format="color"/>
+    <attr name="drawablePaddingCompat" format="dimension"/>
     <declare-styleable name="TextViewCompatible">
         <attr name="drawableLeftCompat"/>
         <attr name="drawableRightCompat"/>
