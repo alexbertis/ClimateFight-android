@@ -15,8 +15,6 @@ import com.climate.fight.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.text.DecimalFormat;
-
 public class Crear3Fragment extends Fragment {
 
 

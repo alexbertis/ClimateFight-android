@@ -23,14 +23,18 @@
 
     <string name="patternToday">\'Hoy a las\' HH:mm</string>
     <string name="patternTomorrow">\'Mañana a las\' HH:mm</string>
+    <string name="patternYesterday">\'Ayer a las\' HH:mm</string>
 
     <string name="prettytime_summary_off">Fecha y hora se mostrarán tal y como son.\nEjemplo: \"Hoy a las 14:30\"</string>
     <string name="prettytime_summary_on">Fecha y hora se mostrarán en términos relativos.\nEjemplo: \"Dentro de 3 horas\"</string>
     <string name="prettytime_title">Formato de fecha relativo</string>
+    <string name="location_summary_off">No se está utilizando tu ubicación para ordenar y filtrar eventos.</string>
+    <string name="location_summary_on">Los eventos se están ordenando de acuerdo con tu ubicación aproximada.</string>
+    <string name="location_title">Usar ubicación para ordenar eventos</string>
     <string name="darkmode_title">Usar el tema oscuro</string>
     <string name="darkmode_summary">Habilitar el modo noche de la app</string>
 
-    <string name="prompt_type_of_event">Antes de nada, selecciona el tipo más apropiado de evento:</string>
+    <string name="prompt_type_of_event">Antes de nada, selecciona el type más apropiado de evento:</string>
     <string name="prompt_new_event">¡Hola! Vamos a crear tu nuevo evento de ClimateFight</string>
     <string name="cancel">Cancelar</string>
     <string name="back">Volver</string>
@@ -44,7 +48,7 @@
     <string name="type_volunteering">Voluntariado</string>
 
     <string name="is_urgent">¿Es urgente?</string>
-    <string name="prompt_event_name">Ahora necesitamos un nombre para el evento:</string>
+    <string name="prompt_event_name">Ahora necesitamos un name para el evento:</string>
     <string name="input_event_name">Nombre del evento</string>
     <string name="prompt_more_new_event">Ahora necesitamos un poco más de información acerca de él…</string>
     <string name="from_date_new_event">Desde: DD/MM/YYYY HH:mm</string>
@@ -79,4 +83,14 @@
     <string name="msg_home_screen_welcome">¡Bienvenido a ClimateFight!\nBaja por aquí ¡y actúa ya!</string>
     <string name="err_invalid_date">Error obteniendo la fecha, por favor utiliza el patrón</string>
     <string name="upgrade_acc">Enlazar con otras cuentas</string>
+    <string name="evinfo_comments">Comentarios</string>
+    <string name="loc_perm_granted">Has concedido el permiso de ubicación</string>
+    <string name="loc_perm_denied">Has denegado el permiso de ubicación</string>
+    <string name="evinfo_comment_new">Nuevo comentario…</string>
+    <string name="info_attending">Yo acudiré (%d)</string>
+    <string name="info_not_attending">Yo no acudiré (%d)</string>
+    <string name="comment_publish">Publicar</string>
+    <string name="comment_like">Me gusta</string>
+    <string name="err_comment_short">Comentario demasiado corto</string>
+    <string name="edit_comment">Edita tu comentario…</string>
 </resources>

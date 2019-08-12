@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="6dp"
-                android:id="@+id/infoev_ubi"
+                android:id="@+id/infoev_loc"
                 android:gravity="center"
                 app:drawableLeftCompat="@drawable/ic_pin_drop_black"
                 />
@@ -60,7 +60,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:textSize="16sp"
-                android:id="@+id/infoev_fecha" />
+                android:id="@+id/infoev_date" />
             <com.google.android.material.button.MaterialButton
                 style="@style/OutlinedButtonApp"
                 android:id="@+id/infoev_calendar"
@@ -77,11 +77,24 @@
         <com.google.android.material.button.MaterialButton
             style="@style/OutlinedButtonApp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/event_access_page"
+            android:visibility="gone"
             android:id="@+id/infoev_link"
             android:onClick="onClick"
             app:icon="@drawable/ic_link_black"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"/>
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/infoev_attending"
+            android:onClick="onClick"
+            app:icon="@drawable/ic_person_add"
             android:layout_marginStart="@dimen/text_margin"
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginEnd="@dimen/text_margin"
@@ -91,6 +104,39 @@
             android:layout_height="wrap_content"
             android:id="@+id/infoev_des"
             android:layout_margin="@dimen/text_margin" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/text_margin"
+            android:id="@+id/infoev_titcomments"
+            android:text="@string/evinfo_comments"
+            style="@style/TextAppearance.AppCompat.Title"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoev_newcomment"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:hint="@string/evinfo_comment_new"
+            android:inputType="textMultiLine|textCapSentences"/>
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button"
+            android:id="@+id/infoev_publishcomment"
+            android:layout_marginEnd="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/comment_publish" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/infoev_comments"/>
 
     </LinearLayout>
 

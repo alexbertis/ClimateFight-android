@@ -63,9 +63,9 @@ public class MainMapFragment extends Fragment {
             getActivity().runOnUiThread(() -> {
                 for (final ItemHome itemHome : itemList) {
                     Marker evMarker = new Marker(map);
-                    evMarker.setPosition(new GeoPoint(itemHome.getUbicacion().getLatitude(), itemHome.getUbicacion().getLongitude()));
+                    evMarker.setPosition(new GeoPoint(itemHome.getLocation().getLatitude(), itemHome.getLocation().getLongitude()));
                     evMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                    evMarker.setTitle(itemHome.getNombre());
+                    evMarker.setTitle(itemHome.getName());
                     evMarker.setOnMarkerClickListener((marker, mapView) -> {
                         Intent eventoIntent = new Intent(getContext(), MoreInfoActivity.class);
                         Gson gson = new Gson();

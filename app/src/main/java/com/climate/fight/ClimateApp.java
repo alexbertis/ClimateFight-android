@@ -11,9 +11,6 @@ public class ClimateApp extends Application {
     public void onCreate() {
         super.onCreate();
         switch (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("darkmode", "auto")){
-            case "auto":
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-                break;
             case "lowbat":
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY);
                 break;
@@ -22,6 +19,9 @@ public class ClimateApp extends Application {
                 break;
             case "dark":
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+            default:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                 break;
         }
     }

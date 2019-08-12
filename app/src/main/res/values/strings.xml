@@ -2,6 +2,8 @@
     <string name="app_name">ClimateFight</string>
     <string name="event_info">Event info</string>
     <string name="title_activity_main">Home</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_account">Your account</string>
     <string name="title_tab_feed">Feed</string>
     <string name="title_tab_map">Map</string>
     <string name="title_tab_account">Account</string>
@@ -17,7 +19,7 @@
     <string name="event_protest">Protest</string>
     <string name="patternToday">\'Today at\' HH:mm</string>
     <string name="patternTomorrow">\'Tomorrow at\' HH:mm</string>
-    <string name="title_activity_settings">Settings</string>
+    <string name="patternYesterday">\'Yesterday at\' HH:mm</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
 
@@ -39,10 +41,12 @@
     <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\"</string>
     <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\"</string>
     <string name="prettytime_title">Relative time format</string>
+    <string name="location_summary_off">You are not using your location to filter events</string>
+    <string name="location_summary_on">All the events in the feed are being sorted according to your approximate location</string>
+    <string name="location_title">Use location to sort events</string>
     <string name="darkmode_title">Use app Dark theme</string>
     <string name="darkmode_summary">Enable the app\'s night mode</string>
 
-    <string name="title_activity_account">Your account</string>
     <string name="prompt_type_of_event">First of all, select the most appropriate type of event:</string>
     <string name="prompt_new_event">Hey! Let\'s create a new event on ClimateFight</string>
     <string name="cancel">Cancel</string>
@@ -88,4 +92,14 @@
     <string name="log_out">Log out</string>
     <string name="err_invalid_date">Error parsing date, please follow the pattern</string>
     <string name="upgrade_acc">Link with other accounts</string>
+    <string name="evinfo_comments">Comments</string>
+    <string name="loc_perm_granted">You granted the location permission</string>
+    <string name="loc_perm_denied">You denied the location permission</string>
+    <string name="evinfo_comment_new">New comment…</string>
+    <string name="comment_like">Like</string>
+    <string name="info_attending">I am attending (%d)</string>
+    <string name="info_not_attending">I am not attending (%d)</string>
+    <string name="comment_publish">Publish</string>
+    <string name="err_comment_short">Comment too short</string>
+    <string name="edit_comment">Edit your comment…</string>
 </resources>

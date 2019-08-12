@@ -10,46 +10,49 @@ public class ItemHome {
     public static final int TIPO_TALLER = 3;
     public static final int TIPO_VOLUNTARIADO = 4;
 
-    private String nombre, desc;
-    private int tipo;
+    private String name, desc;
+    private int type;
+    private String id;
     private long millisStart, millisEnd;
     private boolean periodic, urgent;
-    private GeoPoint ubicacion;
-    private int radio;
-    private String refUbi;
+    private GeoPoint location;
+    private int radius, distToUser;
+    private String refLoc;
     private String urlInfo;
 
     //TODO: parte social del evento
 
 
-    public ItemHome(String nombre, String desc, int tipo, long millisStart, long millisEnd, boolean periodic, boolean urgent, GeoPoint ubicacion, int radio, String refUbi, String urlInfo){
-        this.nombre = nombre;
+    public ItemHome(String name, String desc, int type, String id, long millisStart, long millisEnd, boolean periodic, boolean urgent, GeoPoint location, int radius, String refLoc, String urlInfo, int distToUser){
+        this.name = name;
         this.desc = desc;
-        this.tipo = tipo;
+        this.type = type;
+        this.id = id;
         this.millisStart = millisStart;
         this.millisEnd = millisEnd;
         this.periodic = periodic;
         this.urgent = urgent;
-        this.ubicacion = ubicacion;
-        this.radio = radio;
-        this.refUbi = refUbi;
+        this.location = location;
+        this.radius = radius;
+        this.refLoc = refLoc;
         this.urlInfo = urlInfo;
+        this.distToUser = distToUser;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
     public String getDesc() {
         return desc;
     }
 
-    public int getTipo() {
-        return tipo;
+    public int getType() {
+        return type;
     }
 
-    public GeoPoint getUbicacion() {
-        return ubicacion;
+    public GeoPoint getLocation() {
+        return location;
     }
 
     public long getMillisStart() {
@@ -64,19 +67,31 @@ public class ItemHome {
         return millisEnd;
     }
 
-    public String getRefUbi() {
-        return refUbi;
+    public String getRefLoc() {
+        return refLoc;
     }
 
     public String getUrlInfo() {
         return urlInfo;
     }
 
-    public int getRadio() {
-        return radio;
+    public int getRadius() {
+        return radius;
     }
 
     public boolean isUrgent() {
         return urgent;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getDistToUser() {
+        return distToUser;
+    }
+
+    public void setDistToUser(int distToUser) {
+        this.distToUser = distToUser;
     }
 }

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.climate.fight.DistManager;
 import com.climate.fight.MoreInfoActivity;
 import com.climate.fight.R;
 import com.google.gson.Gson;
@@ -33,6 +34,7 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private List<ItemHome> items;
     private final Context context;
+    private final DistManager distManager = new DistManager();
     private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM HH:mm");
 
     public MultiAdapter(List<ItemHome> items, Context context) {
@@ -73,7 +75,7 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     /*@Override
     public int getItemViewType(int position) {
         ItemHome item = items.get(position);
-        return item.getTipo();
+        return item.getType();
     }*/
 
     @Override
@@ -104,7 +106,7 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         ViewHolderGeneric vh = (ViewHolderGeneric) holder;
         ItemHome item = items.get(position);
         @StringRes int type = R.string.event_info;
-        switch (item.getTipo()) {
+        switch (item.getType()) {
             case TIPO_BATIDA:
                 type = R.string.type_rubcollect;
                 break;
@@ -122,7 +124,7 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
         vh.type.setText(type);
         Date date = new Date(item.getMillisStart());
-        String name = item.getNombre(), lugar = item.getRefUbi();
+        String name = item.getName(), lugar = item.getRefLoc();
         vh.itemView.setOnClickListener(view -> {
             Intent eventIntent = new Intent(context, MoreInfoActivity.class);
             Gson gson = new Gson();
@@ -132,7 +134,12 @@ public class MultiAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         });
         vh.tit.setText(name);
         vh.start.setText(context.getString(R.string.ev_starts) + sdf.format(date));
-        vh.pla.setText(context.getString(R.string.ev_at) + lugar);
+        if(item.getDistToUser() > -1) {
+            String distance = distManager.adaptiveDistance(item.getDistToUser());
+            vh.pla.setText(context.getString(R.string.ev_at) + lugar + " (" + distance + ")");
+        }else{
+            vh.pla.setText(context.getString(R.string.ev_at) + lugar);
+        }
         /*switch (holder.getItemViewType()) {
             case TIPO_MANIF:
                 ViewHolderMani vhMani = (ViewHolderMani) holder;

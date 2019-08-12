@@ -16,6 +16,8 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/overwbackground"
             android:layout_margin="20dp"
             android:text="@string/msg_welcome" />
 
@@ -56,6 +58,8 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/overwbackground"
             android:id="@+id/account_data"/>
 
         <com.google.android.material.button.MaterialButton

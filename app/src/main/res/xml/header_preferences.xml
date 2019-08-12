@@ -15,12 +15,21 @@
 
     <SwitchPreferenceCompat
         app:key="prettytime"
+        app:icon="@drawable/ic_time"
         app:summaryOff="@string/prettytime_summary_off"
         app:summaryOn="@string/prettytime_summary_on"
         app:title="@string/prettytime_title" />
 
+    <SwitchPreferenceCompat
+        app:key="location"
+        app:icon="@drawable/ic_my_location"
+        app:summaryOff="@string/location_summary_off"
+        app:summaryOn="@string/location_summary_on"
+        app:title="@string/location_title" />
+
     <ListPreference
         app:key="darkmode"
+        app:icon="@drawable/ic_dark"
         app:summary="@string/darkmode_summary"
         app:title="@string/darkmode_title"
         app:entries="@array/dark_entries"

@@ -56,7 +56,7 @@ public class FeedFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // TODO: Use the ViewModel
         refreshLayout.setOnRefreshListener(() -> {
-            ((MainActivity)getActivity()).updateFirestoreMain(adapter);
+            ((MainActivity)getActivity()).updateFirestoreMain(adapter, false);
             refreshLayout.setRefreshing(false);
         });
     }
