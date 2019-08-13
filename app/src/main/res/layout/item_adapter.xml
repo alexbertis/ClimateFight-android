@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/itemtime"
             style="@style/TextAppearance.AppCompat.Body1"/>
-        <com.climate.fight.views.TextViewCompatible
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/itemplace"

@@ -7,12 +7,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.climate.fight.R;
 import com.climate.fight.recycler.ItemHome;
-import com.climate.fight.views.ButtonCompatible;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
@@ -39,8 +39,7 @@ public class CrearActivity extends AppCompatActivity {
     private int type = -1;
     private final int range = 50;
     private boolean urgent = false;
-    private ButtonCompatible btnNext;
-    private ButtonCompatible btnReturn;
+    private AppCompatButton btnNext, btnReturn;
     private final View.OnClickListener nextDefault = view -> {
         Crear1Fragment c1f = (Crear1Fragment)f1;
         Crear2Fragment c2f = (Crear2Fragment)f2;

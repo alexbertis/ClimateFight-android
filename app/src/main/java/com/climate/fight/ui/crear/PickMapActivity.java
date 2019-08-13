@@ -50,7 +50,7 @@ public class PickMapActivity extends AppCompatActivity {
                 Marker evMarker = new Marker(map);
                 evMarker.setPosition(p);
                 evMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-                evMarker.setIcon(ContextCompat.getDrawable(PickMapActivity.this, R.drawable.pin_place));
+                evMarker.setIcon(ContextCompat.getDrawable(PickMapActivity.this, R.drawable.placeholder));
                 map.getOverlays().add(evMarker);
                 prmk = evMarker;
                 Toast.makeText(getBaseContext(),lat + " - " + longi, Toast.LENGTH_LONG).show();

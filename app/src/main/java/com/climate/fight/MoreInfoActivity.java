@@ -251,7 +251,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         Marker evMarker = new Marker(map);
         evMarker.setPosition(centro);
         evMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
-        evMarker.setIcon(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.pin_place));
+        evMarker.setIcon(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.placeholder));
         map.getOverlays().add(evMarker);
 
     }
@@ -280,18 +280,10 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
 
     public void onResume(){
         super.onResume();
-        //this will refresh the osmdroid configuration on resuming.
-        //if you make changes to the configuration, use
-        //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        //Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
-        map.onResume(); //needed for compass, my location overlays, v6.0.0 and up
+        map.onResume();
     }
     public void onPause(){
         super.onPause();
-        //this will refresh the osmdroid configuration on resuming.
-        //if you make changes to the configuration, use
-        //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        //Configuration.getInstance().save(this, prefs);
-        map.onPause();  //needed for compass, my location overlays, v6.0.0 and up
+        map.onPause();
     }
 }
