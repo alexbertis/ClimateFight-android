@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,6 +111,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/text_margin"
             android:id="@+id/infoev_titcomments"
+            android:visibility="gone"
             android:text="@string/evinfo_comments"
             style="@style/TextAppearance.AppCompat.Title"/>
 
@@ -117,6 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/infoev_newcomment"
+            android:visibility="gone"
             android:layout_marginEnd="@dimen/text_margin"
             android:layout_marginRight="@dimen/text_margin"
             android:layout_marginStart="@dimen/text_margin"
@@ -126,6 +129,7 @@
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button"
             android:id="@+id/infoev_publishcomment"
+            android:visibility="gone"
             android:layout_marginEnd="@dimen/text_margin"
             android:layout_marginRight="@dimen/text_margin"
             android:layout_width="wrap_content"
@@ -136,6 +140,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:id="@+id/infoev_comments"/>
 
     </LinearLayout>

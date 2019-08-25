@@ -31,6 +31,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
@@ -234,8 +235,12 @@ public class MainActivity extends AppCompatActivity {
             i = new Intent(this, AccountActivity.class);
             startActivity(i);
         }else if(id == R.id.main_add){
-            i = new Intent(this, CrearActivity.class);
-            startActivity(i);
+            if(FirebaseAuth.getInstance().getCurrentUser() == null){
+                Toast.makeText(MainActivity.this, R.string.new_event_login_required, Toast.LENGTH_SHORT).show();
+            }else {
+                i = new Intent(this, CrearActivity.class);
+                startActivity(i);
+            }
         }
 
         return super.onOptionsItemSelected(item);

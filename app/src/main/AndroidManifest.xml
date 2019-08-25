@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.climate.fight">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -27,6 +28,7 @@
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".MoreInfoActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_more_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

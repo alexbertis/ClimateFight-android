@@ -102,4 +102,5 @@
     <string name="comment_publish">Publish</string>
     <string name="err_comment_short">Comment too short</string>
     <string name="edit_comment">Edit your comment…</string>
+    <string name="new_event_login_required">You need to be logged in to upload your own events</string>
 </resources>

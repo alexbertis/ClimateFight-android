@@ -172,7 +172,9 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
                 attUser.child(uid).setValue(attend);
             });
 
+            findViewById(R.id.infoev_titcomments).setVisibility(View.VISIBLE);
             CommentAdapter adapter = new CommentAdapter(commentList, MoreInfoActivity.this, comments, uid);
+            rvComments.setVisibility(View.VISIBLE);
             rvComments.setLayoutManager(new LinearLayoutManager(MoreInfoActivity.this, RecyclerView.VERTICAL, false));
             rvComments.setAdapter(adapter);
             comments.addValueEventListener(new ValueEventListener() {
@@ -216,6 +218,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             });
+            bNewComment.setVisibility(View.VISIBLE);
             bNewComment.setOnClickListener(view -> {
                 String text = editNewComment.getText().toString().trim();
                 if(text.length() < 2){
@@ -234,6 +237,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
                     });
                 }
             });
+            editNewComment.setVisibility(View.VISIBLE);
         }else{
 
         }
