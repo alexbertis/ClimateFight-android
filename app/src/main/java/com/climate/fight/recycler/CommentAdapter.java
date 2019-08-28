@@ -70,11 +70,14 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         vh.text.setText(text);
         vh.user.setText(user);
         vh.date.setText(tiempos.tiempoRestante(item.getPostedDate()));
-        if(item.getNumLikes() == 0){
+        if(item.getNumLikes() == 0) {
             vh.like.setText(context.getString(R.string.comment_like));
-            vh.like.setIcon(ContextCompat.getDrawable(context, R.drawable.ic_favorite_border_black));
         }else{
             vh.like.setText(String.valueOf(item.getNumLikes()));
+        }
+        if(!item.isLiked()){
+            vh.like.setIcon(ContextCompat.getDrawable(context, R.drawable.ic_favorite_border_black));
+        }else{
             vh.like.setIcon(ContextCompat.getDrawable(context, R.drawable.ic_favorite_black));
         }
         vh.like.setOnClickListener(view -> {

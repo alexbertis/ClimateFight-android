@@ -2,6 +2,9 @@ package com.climate.fight.ui.crear;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,10 @@ import androidx.fragment.app.Fragment;
 import com.climate.fight.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class Crear3Fragment extends Fragment {
 
@@ -31,7 +38,28 @@ public class Crear3Fragment extends Fragment {
         View v = inflater.inflate(R.layout.crear3_fragment, container, false);
         b = v.findViewById(R.id.launchPickMapNewEv);
         til = v.findViewById(R.id.descNewEv);
-        b.setOnClickListener(view -> startActivityForResult(new Intent(getContext(), PickMapActivity.class), 117));
+
+        b.setOnClickListener(view -> {
+            Intent i = new Intent(getContext(), PickMapActivity.class);
+            Location location = ((CrearActivity)getActivity()).getLocation();
+            if(location != null){
+                i.putExtra("lat", location.getLatitude());
+                i.putExtra("lng", location.getLongitude());
+            }else{
+                String locale = getContext().getResources().getConfiguration().locale.getDisplayCountry();
+                try {
+                    Address address = new Geocoder(getContext()).getFromLocationName(locale, 1).get(0);
+                    i.putExtra("lat", address.getLatitude());
+                    i.putExtra("lng", address.getLongitude());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    i.putExtra("lat", 0);
+                    i.putExtra("lng", 0);
+                }
+
+            }
+            startActivityForResult(i, 117);
+        });
         return v;
     }
 

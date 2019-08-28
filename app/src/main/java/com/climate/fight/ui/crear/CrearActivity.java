@@ -1,18 +1,41 @@
 package com.climate.fight.ui.crear;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentSender;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.climate.fight.MainActivity;
 import com.climate.fight.R;
 import com.climate.fight.recycler.ItemHome;
+import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
@@ -155,6 +178,10 @@ public class CrearActivity extends AppCompatActivity {
         alertDate.create().show();
     }
 
+    private FusedLocationProviderClient fusedLocationClient;
+    private Location location;
+    private LocationCallback locationCallback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,7 +195,14 @@ public class CrearActivity extends AppCompatActivity {
 
         btnReturn.setOnClickListener(view -> back(fm));
         btnNext.setOnClickListener(nextDefault);
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+
+        if (ContextCompat.checkSelfPermission(CrearActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(CrearActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1002);
+        } else {
+            locationUpdates();
+        }
     }
 
     private void back(FragmentManager fm){
@@ -188,6 +222,39 @@ public class CrearActivity extends AppCompatActivity {
     public void onBackPressed() {
         back(getSupportFragmentManager());
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+        if(requestCode == 1002){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(CrearActivity.this, R.string.loc_perm_granted, Toast.LENGTH_SHORT).show();
+                locationUpdates();
+            }else{
+                Toast.makeText(CrearActivity.this, R.string.loc_perm_denied, Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void locationUpdates(){
+        locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null || locationResult.getLastLocation() == null) {
+                    fusedLocationClient.getLastLocation()
+                            .addOnSuccessListener(loc -> {
+                                location = loc;
+                            });
+                }else{
+                    location = locationResult.getLastLocation();
+                }
+            }
+        };
+        LocationRequest locationRequest = LocationRequest.create();
+        locationRequest.setInterval(60000);
+        locationRequest.setFastestInterval(30000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+    }
 
     private void setD1(String name, int type, boolean urgent){
         this.name = name;
@@ -201,4 +268,13 @@ public class CrearActivity extends AppCompatActivity {
         this.end = end;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        fusedLocationClient.removeLocationUpdates(locationCallback);
+    }
 }

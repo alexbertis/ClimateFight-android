@@ -52,15 +52,12 @@ public class MainMapFragment extends Fragment {
         return v;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        // TODO: Use the ViewModel
-        GeoPoint startPoint = new GeoPoint(42.1401, -0.408897);
+    public void displayMap(GeoPoint startPoint){
         new Thread(() -> {
             while (((MainActivity)getActivity()).getItemsHome() == null || ((MainActivity)getActivity()).getItemsHome().size() == 0){ }
             itemList = ((MainActivity)getActivity()).getItemsHome();
             getActivity().runOnUiThread(() -> {
+                map.getOverlays().clear();
                 for (final ItemHome itemHome : itemList) {
                     Marker evMarker = new Marker(map);
                     evMarker.setPosition(new GeoPoint(itemHome.getLocation().getLatitude(), itemHome.getLocation().getLongitude()));

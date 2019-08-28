@@ -20,7 +20,7 @@ import org.osmdroid.views.overlay.Marker;
 
 public class PickMapActivity extends AppCompatActivity {
 
-    private double lat = 0.0, longi = 0.0;
+    private double lat = 0.0, lng = 0.0;
     private Marker prmk;
 
     @Override
@@ -34,10 +34,12 @@ public class PickMapActivity extends AppCompatActivity {
 
 
         IMapController mapController = map.getController();
-        mapController.setCenter(new GeoPoint(40.4381311,-3.8196196));
+        double lati = getIntent().getDoubleExtra("lat", 0.0);
+        double lngi = getIntent().getDoubleExtra("lng", 0.0);
+        mapController.setCenter(new GeoPoint(lati,lngi));
         mapController.setZoom(15);
         findViewById(R.id.map_pick_ok).setOnClickListener(view -> {
-            Intent i = new Intent().putExtra("lat", lat).putExtra("lon", longi);
+            Intent i = new Intent().putExtra("lat", lat).putExtra("lon", lng);
             setResult(Activity.RESULT_OK, i);
             finish();
         });
@@ -45,7 +47,7 @@ public class PickMapActivity extends AppCompatActivity {
             @Override
             public boolean singleTapConfirmedHelper(GeoPoint p) {
                 lat = p.getLatitude();
-                longi = p.getLongitude();
+                lng = p.getLongitude();
                 if(prmk != null) map.getOverlays().remove(prmk);
                 Marker evMarker = new Marker(map);
                 evMarker.setPosition(p);
@@ -53,7 +55,7 @@ public class PickMapActivity extends AppCompatActivity {
                 evMarker.setIcon(ContextCompat.getDrawable(PickMapActivity.this, R.drawable.placeholder));
                 map.getOverlays().add(evMarker);
                 prmk = evMarker;
-                Toast.makeText(getBaseContext(),lat + " - " + longi, Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(),lat + " - " + lng, Toast.LENGTH_LONG).show();
                 return false;
             }
             @Override

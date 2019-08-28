@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +41,7 @@ import com.google.firebase.firestore.GeoPoint;
 
 import org.osmdroid.config.Configuration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -180,6 +183,8 @@ public class MainActivity extends AppCompatActivity {
                     else if (metrosDistA < metrosDistB) return -1;
                     else return 1;
                 });
+
+                ((MainMapFragment)fragmentM).displayMap(new org.osmdroid.util.GeoPoint(loc.getLatitude(), loc.getLongitude()));
             }else{
                 for (DocumentSnapshot ds : queryDocumentSnapshots.getDocuments()) {
                     try {
@@ -191,6 +196,15 @@ public class MainActivity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                }
+
+                String locale = getResources().getConfiguration().locale.getDisplayCountry();
+                try {
+                    Address address = new Geocoder(MainActivity.this).getFromLocationName(locale, 1).get(0);
+                    ((MainMapFragment)fragmentM).displayMap(new org.osmdroid.util.GeoPoint(address.getLatitude(), address.getLongitude()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    ((MainMapFragment)fragmentM).displayMap(new org.osmdroid.util.GeoPoint(0.0,0.0));
                 }
             }
             if (adapter != null) {
