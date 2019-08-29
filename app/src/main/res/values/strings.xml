@@ -10,6 +10,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_add">Create event</string>
     <string name="action_account">My Account</string>
+    <string name="action_about">About</string>
     <string name="event_starts_date">Starts</string>
     <string name="event_starts_today">Starts at</string>
     <string name="event_at_hour">at</string>
@@ -22,6 +23,34 @@
     <string name="patternYesterday">\'Yesterday at\' HH:mm</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
+
+    <string name="about_string">
+        LEGAL DISCLAIMER: We (BrontApps) are not responsible for the behavior of the individuals using our services (this application and all the platform that supports it),
+        nor the possible damage of their actions (either inside our services or in other environments).
+        \n\n
+        CREDITS:
+        \"Earth icon\", visible in the first introductory slide: Icon made by Freepik from www.flaticon.com\n
+        \"Map icon\", visible in the first introductory slide: Icon made by Freepik from www.flaticon.com\n
+    </string>
+    <!-- region WELCOME SLIDES -->
+    <string name="skip">Skip</string>
+    <string name="start">Got it</string>
+
+    <string name="slide_1_title">Welcome to ClimateFight!</string>
+    <string name="slide_1_desc">A platform for you and everyone else to share ideas and start acting to fight Climate Change.</string>
+
+    <string name="slide_2_title">Search events nearby</string>
+    <string name="slide_2_desc">Find protests, walks for collecting rubbish, meetings, workshops and much more in your zone with our location-aware filter.</string>
+
+    <string name="slide_3_title">Interact with other users</string>
+    <string name="slide_3_desc">Show you are attending an event, write your own comment or Like other people\'s comments.</string>
+
+    <string name="slide_4_title">Prepare your own events</string>
+    <string name="slide_4_desc">You can also create your own event, upload it instantly, and share it to reach as many people as possible!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, you need to clear application data in your phone settings.</string>
+    <string name="play_again">Play Again</string>
+    <!-- endregion -->
 
     <!-- Preference Titles >
     <string name="messages_header">Messages</string>
@@ -38,6 +67,7 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string-->
 
+    <!-- region SETTINGS -->
     <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\"</string>
     <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\"</string>
     <string name="prettytime_title">Relative time format</string>
@@ -46,9 +76,11 @@
     <string name="location_title">Use location to sort events</string>
     <string name="darkmode_title">Use app Dark theme</string>
     <string name="darkmode_summary">Enable the app\'s night mode</string>
+    <!-- endregion -->
 
-    <string name="prompt_type_of_event">First of all, select the most appropriate type of event:</string>
+    <!-- region EVENT CREATION -->
     <string name="prompt_new_event">Hey! Let\'s create a new event on ClimateFight</string>
+    <string name="prompt_type_of_event">First of all, select the most appropriate type of event:</string>
     <string name="cancel">Cancel</string>
     <string name="back">Go back</string>
     <string name="next">Next</string>
@@ -76,7 +108,23 @@
     <string name="ev_starts">"Starts: "</string>
     <string name="ev_at">"At "</string>
     <string name="is_urgent">Is it urgent?</string>
-    <string name="event_already_started">The event has already started according to the specified date. Are you sure you want to continue?</string>
+    <!-- endregion -->
+
+    <string name="msg_home_screen_welcome">Welcome to ClimateFight! Scroll down and act right now!</string>
+    <string name="msg_welcome">Welcome to ClimateFight!</string>
+    <string name="log_out">Log out</string>
+    <string name="upgrade_acc">Link with other accounts</string>
+    <string name="evinfo_comments">Comments</string>
+    <string name="evinfo_comment_new">New comment…</string>
+    <string name="comment_like">Like</string>
+    <string name="info_attending">I am attending (%d)</string>
+    <string name="info_not_attending">I am not attending (%d)</string>
+    <string name="comment_publish">Publish</string>
+    <string name="err_comment_short">Comment too short</string>
+    <string name="edit_comment">Edit your comment…</string>
+
+    <!-- region ERROR/WARN MESSAGES -->
+    <string name="err_invalid_date">Error parsing date, please follow the pattern</string>
     <string name="err_past_date">Use a future date</string>
     <string name="err_select_center">Pick a center point</string>
     <string name="err_min_3_chars">At least 3 characters</string>
@@ -87,20 +135,9 @@
     <string name="err_m3c_refloc">Check the name of the place (min 3 characters)</string>
     <string name="err_center_long">You need to provide a location (using the button)</string>
     <string name="err_futuredate_long">The event is already over, couldn\'t upload.</string>
-    <string name="msg_home_screen_welcome">Welcome to ClimateFight! Scroll down and act right now!</string>
-    <string name="msg_welcome">Welcome to ClimateFight!</string>
-    <string name="log_out">Log out</string>
-    <string name="err_invalid_date">Error parsing date, please follow the pattern</string>
-    <string name="upgrade_acc">Link with other accounts</string>
-    <string name="evinfo_comments">Comments</string>
+    <string name="event_already_started">The event has already started according to the specified date. Are you sure you want to continue?</string>
+    <string name="new_event_login_required">You need to be logged in to upload your own events</string>
     <string name="loc_perm_granted">You granted the location permission</string>
     <string name="loc_perm_denied">You denied the location permission</string>
-    <string name="evinfo_comment_new">New comment…</string>
-    <string name="comment_like">Like</string>
-    <string name="info_attending">I am attending (%d)</string>
-    <string name="info_not_attending">I am not attending (%d)</string>
-    <string name="comment_publish">Publish</string>
-    <string name="err_comment_short">Comment too short</string>
-    <string name="edit_comment">Edit your comment…</string>
-    <string name="new_event_login_required">You need to be logged in to upload your own events</string>
+    <!-- endregion -->
 </resources>

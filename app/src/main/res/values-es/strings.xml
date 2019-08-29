@@ -21,6 +21,34 @@
     <string name="dialog_yes">Sí</string>
     <string name="dialog_no">No</string>
 
+    <string name="about_string">
+        AVISO LEGAL: Nosotros (BrontApps) no nos responsabilizamos de las actitudes y comportamientos de los usuarios que
+        utilizan nuestros servicios (esta aplicación y la plataforma en la que se apoya) ni de los daños o perjuicios que
+        sus acciones (dentro o fuera de nuestros servicios) puedan causar.
+        \n\n
+        CRÉDITOS:
+        \"Earth icon\", visible en la primera pantalla de introducción: Icono hecho por Freepik en www.flaticon.com\n
+        \"Map icon\", visible en la primera pantalla de introducción: Icono hecho por Freepik en www.flaticon.com\n
+    </string>
+
+    <string name="skip">Saltar</string>
+    <string name="start">Entendido</string>
+
+    <string name="slide_1_title">¡Bienvenido a ClimateFight!</string>
+    <string name="slide_1_desc">Una plataforma para que tú y cualquier otra persona podáis compartir ideas y empezar a actuar para combatir el Cambio Climático.</string>
+
+    <string name="slide_2_title">Busca eventos cerca de ti</string>
+    <string name="slide_2_desc">Encuentra manifestaciones, recogidas de basura, reuniones, talleres y mucho más en tu zona con nuestro filtro por ubicación.</string>
+
+    <string name="slide_3_title">Interactúa con otros usuarios</string>
+    <string name="slide_3_desc">Anuncia que vas a atender a un evento, escribe tu propio comentario o da Me Gusta al de otro.</string>
+
+    <string name="slide_4_title">Organiza tus propios eventos</string>
+    <string name="slide_4_desc">También puedes crear tu propio evento, subirlo inmediatamente a la aplicación ¡y compartirlo para llegar a todo el mundo!</string>
+
+    <string name="play_again_desc">Para ver de nuevo el tutorial, necesitas borrar los datos de la aplicación en los ajustes de tu teléfono.</string>
+    <string name="play_again">Ver tutorial de nuevo</string>
+
     <string name="patternToday">\'Hoy a las\' HH:mm</string>
     <string name="patternTomorrow">\'Mañana a las\' HH:mm</string>
     <string name="patternYesterday">\'Ayer a las\' HH:mm</string>
@@ -94,4 +122,5 @@
     <string name="err_comment_short">Comentario demasiado corto</string>
     <string name="edit_comment">Edita tu comentario…</string>
     <string name="new_event_login_required">Necesitas iniciar sesión para subir tus propios eventos</string>
+    <string name="action_about">Sobre la app</string>
 </resources>

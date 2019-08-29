@@ -245,6 +245,9 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.main_settings) {
             i = new Intent(this, SettingsActivity.class);
             startActivity(i);
+        }else if (id == R.id.main_about) {
+            i = new Intent(this, AboutActivity.class);
+            startActivity(i);
         }else if(id == R.id.main_account){
             i = new Intent(this, AccountActivity.class);
             startActivity(i);

@@ -19,5 +19,11 @@
         android:orderInCategory="100"
         app:iconTint="@color/white"
         android:icon="@drawable/ic_settings_black"/>
+    <item android:id="@+id/main_about"
+        app:showAsAction="ifRoom"
+        android:title="@string/action_about"
+        android:orderInCategory="100"
+        app:iconTint="@color/white"
+        android:icon="@drawable/ic_info"/>
 
 </menu>

@@ -7,4 +7,14 @@
     <color name="overbackground">#FFF</color>
     <color name="overwbackground">#000</color>
     <color name="green_pin">#2E7D32</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#00C853</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+
+    <color name="dot_dark_screen">#60000000</color>
+    <color name="dot_light_screen">#CBFFFFFF</color>
+
 </resources>

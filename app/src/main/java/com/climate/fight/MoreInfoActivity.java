@@ -41,6 +41,8 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -211,6 +213,13 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
                         }
                         commentList.add(new ItemComment(commentId, commentUser, commentText, count, postedDate, currentLiked));
                     }
+                    Collections.sort(commentList, (comment1, comment2) -> {
+                        long likesA = comment1.getNumLikes();
+                        long likesB = comment2.getNumLikes();
+                        if (likesA == likesB) return 0;
+                        else if (likesA > likesB) return -1;
+                        else return 1;
+                    });
                     adapter.notifyDataSetChanged();
                 }
 
