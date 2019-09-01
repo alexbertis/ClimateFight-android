@@ -2,19 +2,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 android {
     compileSdkVersion 29
-    /*signingConfigs {
+    signingConfigs {
         defecto {
             keyAlias keyAL
             keyPassword keyPW
             storeFile file(storeLOC)
             storePassword storePW
         }
-    }*/
+    }
     defaultConfig {
         applicationId "com.climate.fight"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 4
+        versionCode 5
         versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -23,7 +23,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            //signingConfig signingConfigs.defecto
+            signingConfig signingConfigs.defecto
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {

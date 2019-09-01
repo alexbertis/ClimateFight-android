@@ -28,6 +28,16 @@
         app:title="@string/location_title" />
 
     <ListPreference
+        app:key="sortcomments"
+        app:icon="@drawable/ic_filter_list"
+        app:summary="@string/sort_pref_summary"
+        app:title="@string/sort_pref_title"
+        app:entries="@array/sort_entries"
+        app:entryValues="@array/sort_values"
+        app:defaultValue="pop"
+        />
+
+    <ListPreference
         app:key="darkmode"
         app:icon="@drawable/ic_dark"
         app:summary="@string/darkmode_summary"

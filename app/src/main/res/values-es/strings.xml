@@ -53,14 +53,16 @@
     <string name="patternTomorrow">\'Mañana a las\' HH:mm</string>
     <string name="patternYesterday">\'Ayer a las\' HH:mm</string>
 
-    <string name="prettytime_summary_off">Fecha y hora se mostrarán tal y como son.\nEjemplo: \"Hoy a las 14:30\"</string>
-    <string name="prettytime_summary_on">Fecha y hora se mostrarán en términos relativos.\nEjemplo: \"Dentro de 3 horas\"</string>
+    <string name="prettytime_summary_off">Fecha y hora se mostrarán tal y como son.\nEjemplo: \"Hoy a las 14:30\".</string>
+    <string name="prettytime_summary_on">Fecha y hora se mostrarán en términos relativos.\nEjemplo: \"Dentro de 3 horas\".</string>
     <string name="prettytime_title">Formato de fecha relativo</string>
     <string name="location_summary_off">No se está utilizando tu ubicación para ordenar y filtrar eventos.</string>
     <string name="location_summary_on">Los eventos se están ordenando de acuerdo con tu ubicación aproximada.</string>
     <string name="location_title">Usar ubicación para ordenar eventos</string>
+    <string name="sort_pref_title">Orden de los comentarios</string>
+    <string name="sort_pref_summary">Seleccionar la forma en la que se ordenan los comentarios.</string>
     <string name="darkmode_title">Usar el tema oscuro</string>
-    <string name="darkmode_summary">Habilitar el modo noche de la app</string>
+    <string name="darkmode_summary">Habilitar el modo noche de la app.</string>
 
     <string name="prompt_type_of_event">Antes de nada, selecciona el type más apropiado de evento:</string>
     <string name="prompt_new_event">¡Hola! Vamos a crear tu nuevo evento de ClimateFight</string>
@@ -123,4 +125,6 @@
     <string name="edit_comment">Edita tu comentario…</string>
     <string name="new_event_login_required">Necesitas iniciar sesión para subir tus propios eventos</string>
     <string name="action_about">Sobre la app</string>
+    <string name="sort_newest">Más recientes</string>
+    <string name="sort_popular">Más populares</string>
 </resources>

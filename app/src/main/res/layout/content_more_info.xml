@@ -126,16 +126,33 @@
             android:layout_marginLeft="@dimen/text_margin"
             android:hint="@string/evinfo_comment_new"
             android:inputType="textMultiLine|textCapSentences"/>
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.MaterialComponents.Button"
-            android:id="@+id/infoev_publishcomment"
-            android:visibility="gone"
-            android:layout_marginEnd="@dimen/text_margin"
-            android:layout_marginRight="@dimen/text_margin"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/comment_publish" />
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:id="@+id/comms_sort"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginLeft="@dimen/text_margin"
+                app:icon="@drawable/ic_filter_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View android:layout_weight="1"
+                android:layout_height="0dp"
+                android:layout_width="0dp" />
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button"
+                android:id="@+id/infoev_publishcomment"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/comment_publish" />
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

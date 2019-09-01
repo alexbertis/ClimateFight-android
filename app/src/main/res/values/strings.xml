@@ -68,14 +68,16 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string-->
 
     <!-- region SETTINGS -->
-    <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\"</string>
-    <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\"</string>
+    <string name="prettytime_summary_off">Date and time will be displayed as-is.\nExample: \"Today at 14:30\".</string>
+    <string name="prettytime_summary_on">Date and time will be displayed in relative terms.\nExample: \"3 hours remaining\".</string>
     <string name="prettytime_title">Relative time format</string>
-    <string name="location_summary_off">You are not using your location to filter events</string>
-    <string name="location_summary_on">All the events in the feed are being sorted according to your approximate location</string>
+    <string name="location_summary_off">You are not using your location to filter events.</string>
+    <string name="location_summary_on">All the events in the feed are being sorted according to your approximate location.</string>
     <string name="location_title">Use location to sort events</string>
+    <string name="sort_pref_title">Comment sorting</string>
+    <string name="sort_pref_summary">Select the default comments ordering method.</string>
     <string name="darkmode_title">Use app Dark theme</string>
-    <string name="darkmode_summary">Enable the app\'s night mode</string>
+    <string name="darkmode_summary">Enable the app\'s night mode.</string>
     <!-- endregion -->
 
     <!-- region EVENT CREATION -->
@@ -139,5 +141,7 @@
     <string name="new_event_login_required">You need to be logged in to upload your own events</string>
     <string name="loc_perm_granted">You granted the location permission</string>
     <string name="loc_perm_denied">You denied the location permission</string>
+    <string name="sort_newest">Sort by newest</string>
+    <string name="sort_popular">Sort by popular</string>
     <!-- endregion -->
 </resources>

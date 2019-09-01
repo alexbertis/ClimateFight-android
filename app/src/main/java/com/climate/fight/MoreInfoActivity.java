@@ -13,6 +13,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,13 +58,14 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
     private MapView map = null;
     private ItemHome event;
     private boolean fav = false, attend = false;
+    private String order = Constants.SORT_MODE_POPULAR;
     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     List<ItemComment> commentList = new ArrayList<>();
 
     private TextView tvTitle, tvType, tvLoc, tvDate, tvDesc;
     private EditText editNewComment;
-    private MaterialButton bLink, bAttend, bNewComment;
+    private MaterialButton bLink, bAttend, bNewComment, bSortComments;
     private RecyclerView rvComments;
 
     @Override
@@ -81,7 +83,6 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         tvDesc = findViewById(R.id.infoev_des);
         bAttend = findViewById(R.id.infoev_attending);
         bLink = findViewById(R.id.infoev_link);
-        // TODO: cambiar programáticamente TextView del tipo de event
         final FloatingActionButton fab = findViewById(R.id.fab);
 
         @StringRes int type = R.string.event_info;
@@ -116,6 +117,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         if(user != null){
             rvComments = findViewById(R.id.infoev_comments);
             bNewComment = findViewById(R.id.infoev_publishcomment);
+            bSortComments = findViewById(R.id.comms_sort);
             editNewComment = findViewById(R.id.infoev_newcomment);
 
             final String uid = user.getUid();
@@ -179,6 +181,7 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
             rvComments.setVisibility(View.VISIBLE);
             rvComments.setLayoutManager(new LinearLayoutManager(MoreInfoActivity.this, RecyclerView.VERTICAL, false));
             rvComments.setAdapter(adapter);
+            order = PreferenceManager.getDefaultSharedPreferences(MoreInfoActivity.this).getString("sortcomments", Constants.SORT_MODE_POPULAR);
             comments.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -213,19 +216,17 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
                         }
                         commentList.add(new ItemComment(commentId, commentUser, commentText, count, postedDate, currentLiked));
                     }
-                    Collections.sort(commentList, (comment1, comment2) -> {
-                        long likesA = comment1.getNumLikes();
-                        long likesB = comment2.getNumLikes();
-                        if (likesA == likesB) return 0;
-                        else if (likesA > likesB) return -1;
-                        else return 1;
-                    });
-                    adapter.notifyDataSetChanged();
+                    sortCommentsAndNotify(adapter);
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
+            });
+            sortCommentsButtonChange(adapter);
+            bSortComments.setVisibility(View.VISIBLE);
+            bSortComments.setOnClickListener(view -> {
+                sortCommentsButtonChange(adapter);
             });
             bNewComment.setVisibility(View.VISIBLE);
             bNewComment.setOnClickListener(view -> {
@@ -237,12 +238,9 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
                     comment.put("comment", text);
                     comment.put("user", user.getDisplayName());
                     comment.put("posted", System.currentTimeMillis());
-                    comments.child(uid).updateChildren(comment).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Snackbar.make(findViewById(R.id.evinfo_root), R.string.upl_success, BaseTransientBottomBar.LENGTH_SHORT).show();
-                            editNewComment.getText().clear();
-                        }
+                    comments.child(uid).updateChildren(comment).addOnSuccessListener(aVoid -> {
+                        Snackbar.make(findViewById(R.id.evinfo_root), R.string.upl_success, BaseTransientBottomBar.LENGTH_SHORT).show();
+                        editNewComment.getText().clear();
                     });
                 }
             });
@@ -267,6 +265,37 @@ public class MoreInfoActivity extends AppCompatActivity implements View.OnClickL
         evMarker.setIcon(ContextCompat.getDrawable(MoreInfoActivity.this, R.drawable.placeholder));
         map.getOverlays().add(evMarker);
 
+    }
+
+    private void sortCommentsButtonChange(CommentAdapter adapter){
+        if(order.equals(Constants.SORT_MODE_POPULAR)){
+            order = Constants.SORT_MODE_NEW;
+            bSortComments.setText(R.string.sort_popular);
+        }else if(order.equals(Constants.SORT_MODE_NEW)){
+            order = Constants.SORT_MODE_POPULAR;
+            bSortComments.setText(R.string.sort_newest);
+        }
+        sortCommentsAndNotify(adapter);
+    }
+    private void sortCommentsAndNotify(CommentAdapter adapter) {
+        if(order.equals(Constants.SORT_MODE_POPULAR)) {
+            Collections.sort(commentList, (comment1, comment2) -> {
+                long likesA = comment1.getNumLikes();
+                long likesB = comment2.getNumLikes();
+                if (likesA == likesB) return 0;
+                else if (likesA > likesB) return -1;
+                else return 1;
+            });
+        }else{
+            Collections.sort(commentList, (comment1, comment2) -> {
+                long postedA = comment1.getPostedDate();
+                long postedB = comment2.getPostedDate();
+                if (postedA == postedB) return 0;
+                else if (postedA > postedB) return -1;
+                else return 1;
+            });
+        }
+        adapter.notifyDataSetChanged();
     }
 
     @Override
